@@ -9,12 +9,12 @@ import useUser from "../feachers/authentication/useUser";
 function Navbar() {
   const [open, setOpen] = useState(false);
   const { user, isLoading } = useUser();
+  if (isLoading) {
+    return;
+  }
   return (
     <div className="shadow-md">
-      <div
-        className={`flex justify-evenly py-5 items-center ${
-          isLoading ? "blur-sm opacity-50" : ""
-        }`}>
+      <div className={`flex justify-evenly py-5 items-center`}>
         <button onClick={() => setOpen(true)} className="lg:hidden">
           <RxHamburgerMenu className="w-6 h-6" />
         </button>

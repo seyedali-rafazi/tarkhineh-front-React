@@ -15,19 +15,29 @@ import {
   walletSolidIcon,
 } from "../../icons/dashboard-icon";
 import { TbLogout } from "react-icons/tb";
+import useUser from "../authentication/useUser";
 
 function SidebarLayout() {
+  const { isLoading, user } = useUser();
+  if (isLoading) {
+    return;
+  }
+  console.log(user);
+
   return (
-    <div className="h-screen">
+    <div className="h-screen md:h-96 md:border md:border-secondery-500 rounded-lg p-4">
       <div className="space-y-3">
         <div className="flex gap-2 items-center">
           <div className="w-14 h-14 rounded-full">
-            <img src="styles/avatar.png" alt="" />
+            <img
+              src={user.avatarUrl ? user.avatarUrl : "/styles/avatar.png"}
+              alt="عکس کاربر"
+            />
           </div>
           <div className="flex flex-col gap-1">
-            <span>شماره کاربر</span>
+            <span> {user.name ? user.name : "کاربر ترخینه"}</span>
             <span className="text-sm text-secondery-500">
-              {toPersianNumbers("09782323654")}
+              {toPersianNumbers(user.phoneNumber)}
             </span>
           </div>
         </div>

@@ -127,9 +127,10 @@ table td {
   border: 1px solid;
   border-radius: 4px;
   width: 100%;
-  border-color: #757575;
+  border-color: #E1E1E1;
   padding: 5px 10px;
 }
+
 
 .active-icon{
   color: white;
