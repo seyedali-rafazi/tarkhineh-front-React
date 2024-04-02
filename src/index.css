@@ -1,0 +1,136 @@
+@import url("/public/font.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+
+  :root{
+
+
+    --color-white: #FFFFFF;
+
+    --color-gray-100: #F9F9F9;
+    --color-gray-200: #E1E1E1;
+    --color-gray-300: #EDEDED;
+    --color-gray-400: #CBCBCB;
+    --color-gray-500: #ADADAD;
+    --color-gray-600: #757575;
+    --color-gray-700: #717171;
+    --color-gray-800: #353535;
+
+    --color-black: #0C0C0C;
+
+    --color-error: #C30000;
+    --color-error-light: #ED2E2E;
+    --color-error-extralight: #FFF2F2;
+
+    --color-sucess: #00966D;
+    --color-sucess-light: #00BA88;
+    --color-sucess-extralight: #F3FDFA;
+
+    --color-warning: #A9791C;
+    --color-warning-light: #F4B740;
+    --color-warning-extralight: #FFF8E1;
+
+  }
+
+
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Estedad";
+  min-height: 100vh;
+  user-select: none;
+  background-color: rgb(var(--background-app-rgb));
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  /* border: none; */
+  outline: none;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+button:disabled {
+  cursor: default;
+  background-color: rgb(var(--color-secondary-100), 0.5);
+  pointer-events: none;
+  box-shadow: none;
+}
+
+/* inupt number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+/* TABLE */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+table .title-row {
+  background-color: rgb(var(--color-secondary-100));
+}
+
+table td,
+table th {
+  border-bottom: 1px solid rgb(var(--color-secondary-200));
+  text-align: right;
+  white-space: nowrap;
+}
+
+table th {
+  padding: 0.6rem 1rem;
+  color: rgb(var(--color-secondary-600));
+  font-size: 0.9rem;
+}
+
+table td {
+  font-size: 0.85rem;
+  padding: 1rem 1rem;
+  color: rgb(var(--color-secondary-600));
+}
+
+.navbar {
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(100%); /* Initially hide the navbar */
+}
+
+.navbar.open {
+  transform: translateX(0); /* Slide in the navbar */
+}
+
+.textField{
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  border-color: #757575;
+  padding: 5px 10px;
+}
+
+.active-icon{
+  color: white;
+}
