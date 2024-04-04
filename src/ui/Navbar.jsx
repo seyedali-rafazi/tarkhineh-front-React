@@ -5,13 +5,11 @@ import Sidebar from "./Sidebar";
 import NavbarIcons from "./NavbarIcons";
 import NavbarOptions from "./NavbarOptions";
 import useUser from "../feachers/authentication/useUser";
+import Loading from "./Loading";
 
-function Navbar() {
+function Navbar({ user }) {
   const [open, setOpen] = useState(false);
-  const { user, isLoading } = useUser();
-  if (isLoading) {
-    return;
-  }
+
   return (
     <div className="shadow-md">
       <div className={`flex justify-evenly py-5 items-center`}>

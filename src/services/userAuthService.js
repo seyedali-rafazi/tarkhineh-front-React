@@ -9,5 +9,9 @@ export function getUser() {
 }
 
 export function setupdateUser(data) {
-  return http.patch("/user/update" , data).then(({ data }) => data.data);
+  return http.patch("/user/update", data).then(({ data }) => data.data);
+}
+
+export function userLogout() {
+  return http.patch("/user/logout").then(({ data }) => data.data);
 }

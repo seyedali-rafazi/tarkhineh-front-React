@@ -7,6 +7,7 @@ import useUser from "../feachers/authentication/useUser";
 import { NavLink, useNavigate } from "react-router-dom";
 import Loading from "./Loading";
 import { headerButtonURLs } from "../utils/UrlAddress";
+import { baseLogo } from "../icons/Base-icons";
 
 export default function NavbarIcons({ user }) {
   const [open, setOpen] = useState(false);
@@ -101,7 +102,7 @@ export default function NavbarIcons({ user }) {
         </svg>
       </button>
 
-      <Modal open={open} onClose={() => setOpen(false)}>
+      <Modal open={open} onClose={() => setOpen(false)} logo={baseLogo}>
         <div className="flex flex-col justify-center items-center gap-2 ">
           <div>ورود / ثبت نام</div>
           <div className="text-secondery-500 text-xs">
@@ -133,7 +134,7 @@ export default function NavbarIcons({ user }) {
             <button
               type="submit"
               className="w-full font-bold text-slate-50 bg-primary py-2 rounded-md">
-              ثبت نام
+              ثبت نام / ورود
             </button>
           </form>
           <div></div>
