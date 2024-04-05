@@ -11,7 +11,6 @@ function FullAddress({ user, setOpen, open, onCkickSubmitAddress }) {
     formState: { errors },
   } = useForm();
   const [prevAddress, setPrevAddress] = useState(user.address);
-  console.log(user);
   return (
     <div className="w-full md:w-3/4  border rounded-lg border-primary h-auto bg-red-50 p-10">
       <div className=" ">

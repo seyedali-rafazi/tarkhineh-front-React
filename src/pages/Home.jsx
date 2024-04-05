@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../ui/Navbar";
 import useUser from "../feachers/authentication/useUser";
 import Loading from "../ui/Loading";
+import HomeLayout from "../components/home/HomeLayout";
 
 function Home() {
   const { user, isLoading } = useUser();
@@ -13,8 +14,9 @@ function Home() {
     );
   }
   return (
-    <div className=" xl:max-w-7xl">
-      <Navbar user={user}/>
+    <div className=" xl:max-w-7xl min-h-screen">
+      <Navbar user={user} />
+      <HomeLayout />
     </div>
   );
 }

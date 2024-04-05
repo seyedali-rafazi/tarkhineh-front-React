@@ -4,13 +4,16 @@ import { useForm } from "react-hook-form";
 import TextField from "./TextField";
 import useAuth from "../feachers/authentication/useAuth";
 import useUser from "../feachers/authentication/useUser";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Loading from "./Loading";
 import { headerButtonURLs } from "../utils/UrlAddress";
 import { baseLogo } from "../icons/Base-icons";
+import { useSearchMenu } from "../context/SearchContext";
+import { CiSearch } from "react-icons/ci";
 
 export default function NavbarIcons({ user }) {
   const [open, setOpen] = useState(false);
+  const [openSearch, setOpenSeach] = useState(false);
   const [activeButton, setActiveButton] = useState(null);
   const {
     register,
@@ -21,6 +24,15 @@ export default function NavbarIcons({ user }) {
   } = useForm();
   const { isCreating, createUser } = useAuth();
   const navigate = useNavigate();
+  const { searchParams, setSearchParams, searchQuery, setSearchQuery } =
+    useSearchMenu();
+
+  const handleSubmitmenu = (event) => {
+    event.preventDefault();
+    setSearchParams({ q: searchQuery });
+    navigate(`/menu?search=${encodeURIComponent(searchQuery)}`);
+  };
+
 
   const handelUser = () => {
     if (!user) {
@@ -46,14 +58,13 @@ export default function NavbarIcons({ user }) {
     "p-2 duration-300 rounded-lg bg-secondery-300 text-tint-700 ";
 
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 ">
       <button
-        className={
-          headerButtonURLs.slice(4).includes(window.location.href)
-            ? ActiveUrlButton
-            : DisableButon
+        className={ `${headerButtonURLs.slice(4).includes(window.location.href)
+          ? ActiveUrlButton
+          : DisableButon } hidden lg:block`
         }
-        onClick={() => {}}>
+        onClick={() => setOpenSeach(true)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -64,6 +75,7 @@ export default function NavbarIcons({ user }) {
             d="M11.5 21.75c-5.65 0-10.25-4.6-10.25-10.25S5.85 1.25 11.5 1.25s10.25 4.6 10.25 10.25-4.6 10.25-10.25 10.25Zm0-19c-4.83 0-8.75 3.93-8.75 8.75s3.92 8.75 8.75 8.75 8.75-3.93 8.75-8.75-3.92-8.75-8.75-8.75ZM22 22.75c-.19 0-.38-.07-.53-.22l-2-2a.754.754 0 0 1 0-1.06c.29-.29.77-.29 1.06 0l2 2c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22Z"></path>
         </svg>{" "}
       </button>
+
       <button
         className={
           headerButtonURLs.slice(0, 3).includes(window.location.href)
@@ -84,6 +96,7 @@ export default function NavbarIcons({ user }) {
             d="M21 8.75H9c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h12c.41 0 .75.34.75.75s-.34.75-.75.75Z"></path>
         </svg>{" "}
       </button>
+
       <button
         onClick={() => handelUser()}
         className={
@@ -140,6 +153,26 @@ export default function NavbarIcons({ user }) {
           <div></div>
           <div></div>
         </div>
+      </Modal>
+
+      <Modal
+        open={openSearch}
+        onClose={() => setOpenSeach(false)}
+        logo="جست و جو">
+        <form
+          onSubmit={handleSubmitmenu}
+          className="flex px-3 py-2 justify-between items-center border border-secondery-400 rounded-lg w-full">
+          <input
+            className="w-full "
+            type="text"
+            placeholder="جست و جو"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <button type="submit">
+            <CiSearch className="w-6 h-6 text-secondery-600" />
+          </button>
+        </form>
       </Modal>
     </div>
   );

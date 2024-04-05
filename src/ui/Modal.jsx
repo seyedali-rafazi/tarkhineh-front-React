@@ -15,10 +15,10 @@ function Modal({ open, children, onClose, logo }) {
 
   return (
     open && (
-      <div className="backdrop-blur-sm fixed top-0 left-0 w-full h-screen bg-secondery-800 bg-opacity-10 z-5000">
+      <div className="backdrop-blur-sm absolute top-0 left-0 right-0 bottom-0 w-full h-screen bg-secondery-800 bg-opacity-30 modal">
         <div
           ref={modalref}
-          className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-secondery-50 rounded-lg p-4  transition-all duration-500 ease-out w-[calc(100vw-2rem)] md:max-w-lg max-h-[calc(100vh-2rem)]">
+          className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-secondery-50 rounded-lg p-4  transition-all duration-500 ease-out w-[calc(100vw-2rem)] md:max-w-lg max-h-[calc(100vh-2rem)] z-1001">
           <div className="relative flex flex-col items-center">
             <div className="flex justify-center w-full mb-4">
               <div className="font-bold">{logo}</div>

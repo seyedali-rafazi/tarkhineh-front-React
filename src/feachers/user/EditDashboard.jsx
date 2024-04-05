@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import TextField from "../../ui/TextField";
 import { PiPencilSimpleLine } from "react-icons/pi";
@@ -6,8 +6,10 @@ import useUpdateUser from "../authentication/useUpdateUser";
 import { FaArrowRight } from "react-icons/fa6";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import useUser from "../authentication/useUser";
+import Loading from "../../ui/Loading";
 
-function EditDashboard() {
+function EditDashboard({ user }) {
   const {
     register,
     handleSubmit,
@@ -15,9 +17,10 @@ function EditDashboard() {
   } = useForm();
   const { isUpdating, updateUser } = useUpdateUser();
   const navigate = useNavigate();
+  const [username, setUsername] = useState(user.name);
+  const [email, setEmail] = useState(user.email);
 
   const onCkickSubmit = (data) => {
-    console.log(data);
 
     updateUser(data, {
       onSuccess: () => {
@@ -44,6 +47,8 @@ function EditDashboard() {
             errors={errors}
             name="name"
             type="text"
+            value={username}
+            onChange={(v) => setUsername(v.target.value)}
             register={register}
             validationSchema={{
               required: "نام  و نام خانوادگی  ضروری است",
@@ -55,6 +60,8 @@ function EditDashboard() {
             name="email"
             type="text"
             register={register}
+            value={email}
+            onChange={(v) => setEmail(v.target.value)}
             validationSchema={{
               required: "ایمیل  همراه ضروری است",
               pattern: {

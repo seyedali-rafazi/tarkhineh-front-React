@@ -13,5 +13,5 @@ export function setupdateUser(data) {
 }
 
 export function userLogout() {
-  return http.patch("/user/logout").then(({ data }) => data.data);
+  return http.post("/user/logout").then(({ data }) => data.data);
 }

@@ -135,3 +135,81 @@ table td {
 .active-icon{
   color: white;
 }
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  z-index: 1 !important;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: white;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-pagination {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 1em 1em 0 0;
+  bottom: -.25em !important;
+  display: flex;
+  left: 0 !important;
+  margin: 0 auto;
+  padding: .5em .25em;
+  right: 0 !important;
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: #adadad !important;
+  height: 6px !important;
+  opacity: 1 !important;
+  width: 6px !important;
+  z-index: inherit;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #417f56 !important;
+  box-shadow: 0 0 0 3px #e5f2e9;
+  height: 8px !important;
+  width: 8px !important;
+  z-index: inherit;
+}
+
+.swiper-button-prev{
+  color: #FFF2F2 !important;
+}
+.swiper-button-next{
+  color: #FFF2F2 !important;
+}
+
+:root {
+  --swiper-pagination-color: #ffffff;
+  --swiper-pagination-bullet-size: 8px;
+  --swiper-pagination-bullet-width: 8px;
+  --swiper-pagination-bullet-height: 8px;
+  --swiper-pagination-bullet-inactive-color: #000;
+  --swiper-pagination-bullet-inactive-opacity: 0.2;
+  --swiper-pagination-bullet-opacity: 1;
+  --swiper-pagination-bullet-horizontal-gap: 4px;
+  --swiper-pagination-bullet-vertical-gap: 6px;
+}
+
+.modal{
+  z-index: 1000;
+}

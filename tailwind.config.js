@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
 import { fontFamily } from "tailwindcss/defaultTheme";
-import tailwindFormPlugin from "@tailwindcss/forms";
 
 function withOpacity(variableName) {
   return ({ opacityValue }) => {
@@ -16,6 +15,12 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      backgroundImage: {
+        "hero-pattern": "url('/public/icons/Empty-page.svg')", // Replace with the actual path or URL
+        "home-slide-one": "url('/public/styles/slider.jpg')", // Replace with the actual path or URL
+        "home-slide-two": "url('/public/styles/slider2.jpg')", // Replace with the actual path or URL
+        "home-slide-three": "url('/public/styles/slider3.jpg')", // Replace with the actual path or URL
+      },
       container: {
         center: true,
         padding: "1rem",

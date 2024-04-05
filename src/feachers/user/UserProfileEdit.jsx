@@ -2,8 +2,15 @@ import React from "react";
 import Navbar from "../../ui/Navbar";
 import SidebarLayout from "./SidebarLayout";
 import EditDashboard from "./EditDashboard";
+import Loading from "../../ui/Loading";
+import useUser from "../authentication/useUser";
 
 function UserProfileEdit() {
+  const { isLoading, user } = useUser();
+
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <div className="xl:max-w-7xl">
       <Navbar />
@@ -12,7 +19,7 @@ function UserProfileEdit() {
           <SidebarLayout />
         </div>
         <div className=" col-span-8 md:grid md:col-span-6">
-          <EditDashboard />
+          <EditDashboard user={user} />
         </div>
       </div>
     </div>
