@@ -2,6 +2,8 @@ import React from "react";
 import SwiperLayout from "../../ui/Swiper";
 import { SwiperSlide } from "swiper/react";
 import MenuItems from "./MenuItems";
+import MenuInroduction from "./MenuInroduction";
+import HomeBranches from "./HomeBranches";
 
 function HomeLayout({ user }) {
   return (
@@ -45,6 +47,8 @@ function HomeLayout({ user }) {
         </SwiperSlide>
       </SwiperLayout>
       <MenuItems />
+      <MenuInroduction />
+      <HomeBranches />
     </div>
   );
 }

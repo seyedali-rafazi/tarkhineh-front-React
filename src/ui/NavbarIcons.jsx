@@ -33,7 +33,6 @@ export default function NavbarIcons({ user }) {
     navigate(`/menu?search=${encodeURIComponent(searchQuery)}`);
   };
 
-
   const handelUser = () => {
     if (!user) {
       setOpen(true);
@@ -60,10 +59,11 @@ export default function NavbarIcons({ user }) {
   return (
     <div className="flex gap-2 ">
       <button
-        className={ `${headerButtonURLs.slice(4).includes(window.location.href)
-          ? ActiveUrlButton
-          : DisableButon } hidden lg:block`
-        }
+        className={`${
+          headerButtonURLs.slice(4).includes(window.location.href)
+            ? ActiveUrlButton
+            : DisableButon
+        } hidden lg:block`}
         onClick={() => setOpenSeach(true)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -20,6 +20,11 @@ export default {
         "home-slide-one": "url('/public/styles/slider.jpg')", // Replace with the actual path or URL
         "home-slide-two": "url('/public/styles/slider2.jpg')", // Replace with the actual path or URL
         "home-slide-three": "url('/public/styles/slider3.jpg')", // Replace with the actual path or URL
+        "home-intruduction": "url('/public/styles/introduction.jpg')", // Replace with the actual path or URL
+        "home-branch-1": "url('/public/styles/ekbatan.jpg')", // Replace with the actual path or URL
+        "home-branch-2": "url('/public/styles/chalos.jpg')", // Replace with the actual path or URL
+        "home-branch-3": "url('/public/styles/aghdasieh.jpg')", // Replace with the actual path or URL
+        "home-branch-4": "url('/public/styles/vanak.jpg')", // Replace with the actual path or URL
       },
       container: {
         center: true,
