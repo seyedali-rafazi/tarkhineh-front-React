@@ -128,7 +128,9 @@ table td {
   border-radius: 4px;
   width: 100%;
   border-color: #E1E1E1;
+  color: #ADADAD;
   padding: 5px 10px;
+  background-color: transparent;
 }
 
 

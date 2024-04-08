@@ -9,6 +9,11 @@ import UserFavourits from "./feachers/user/UserFavourits";
 import UserAddress from "./feachers/user/UserAddress";
 import { Toaster } from "react-hot-toast";
 import { SearchProvider } from "./context/SearchContext";
+import BranchMenu from "./pages/BranchMenu";
+import MainFood from "./components/menu/MainFood";
+import Appetizer from "./components/menu/Appetizer";
+import Dessert from "./components/menu/Dessert";
+import Drink from "./components/menu/Drink";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +24,13 @@ function App() {
       <SearchProvider>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/branch-menu" element={<BranchMenu />}>
+            <Route index element={<Navigate to="mainfood" replace />} />
+            <Route path="mainfood" element={<MainFood />} />
+            <Route path="appetizer" element={<Appetizer />} />
+            <Route path="dessert" element={<Dessert />} />
+            <Route path="drink" element={<Drink />} />
+          </Route>
           <Route path="/dashboard" element={<UserProfile />} />
           <Route path="/dashboard/profile" element={<UserProfileEdit />} />
           <Route path="/dashboard/user-orders" element={<UserOrders />} />

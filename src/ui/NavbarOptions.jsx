@@ -19,7 +19,7 @@ export default function NavbarOptions() {
             alt=""
           />
           <div className="flex justify-between w-full">
-            <p>منو</p>
+            <p>شعبه</p>
             <img
               className="hidden lg:block"
               width="18"
@@ -38,7 +38,7 @@ export default function NavbarOptions() {
             alt=""
           />
           <div className="flex justify-between w-full">
-            <p>شعبه</p>
+            <p>منو</p>
             <img
               className="hidden lg:block"
               width="18"

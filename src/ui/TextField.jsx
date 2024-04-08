@@ -10,6 +10,8 @@ function TextField({
   errors,
   value,
   onChange,
+  placeholder,
+  className,
 }) {
   return (
     <div className="space-y-2">
@@ -17,13 +19,14 @@ function TextField({
         {label} {required && <span className="text-error">*</span>}
       </label>
       <input
-        className="textField "
+        className={className}
         {...register(name, validationSchema)}
         id={name}
         autoComplete="off"
         type={type}
         value={value}
         onChange={onChange}
+        placeholder={placeholder}
       />
       {errors && errors[name] && (
         <span className="text-error-200 block text-xs mt-2">
