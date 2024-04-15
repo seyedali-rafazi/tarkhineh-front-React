@@ -23,3 +23,9 @@ export function getDrink(qs) {
     .get(`/product/list${qs ? qs : "?category=drinks"}`)
     .then(({ data }) => data.data);
 }
+
+export function getUserFavourit(id) {
+  return http
+    .post(`/user/set-favorite-product/${id}`)
+    .then(({ data }) => data.data);
+}

@@ -3,12 +3,10 @@ import { useForm } from "react-hook-form";
 import { CiSearch } from "react-icons/ci";
 import { FaChevronLeft } from "react-icons/fa";
 import { useLocation, useSearchParams } from "react-router-dom";
+import SearchInput from "../../ui/SearchInput";
 
 function Filter({ products }) {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [searchText, setSearchText] = useState(
-    searchParams.get("search") || ""
-  );
   const location = useLocation();
 
   const handleClick = (p) => {
@@ -18,10 +16,6 @@ function Filter({ products }) {
     setSearchParams({ foodGroup: p });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSearchParams({ search: searchText });
-  };
 
   return (
     <div className="flex gap-4 flex-col lg:flex-row justify-center items-center mt-4">
@@ -41,20 +35,7 @@ function Filter({ products }) {
           </div>
         ))}
       </div>
-      <form
-        onSubmit={handleSubmit}
-        className="flex px-3 py-2 justify-between items-center border border-secondery-400 rounded-lg w-full">
-        <input
-          className="w-full "
-          type="text"
-          placeholder="جست و جو"
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-        />
-        <button type="submit">
-          <CiSearch className="w-6 h-6 text-secondery-600" />
-        </button>
-      </form>
+      <SearchInput/>
     </div>
   );
 }

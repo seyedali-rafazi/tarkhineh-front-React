@@ -9,7 +9,7 @@ export default function useApptizer() {
 
   const decodedSearch = decodeURIComponent(search);
   const { data, isLoading } = useQuery({
-    queryKey: ["apptizer", queryObject],
+    queryKey: ["appetizer", queryObject],
     queryFn: () => getApptizer(decodedSearch),
     retry: false,
   });

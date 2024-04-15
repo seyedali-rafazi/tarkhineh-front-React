@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CiHeart } from "react-icons/ci";
+import { FaHeart } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import {
   toPersianNumbers,
   toPersianNumbersWithComma,
 } from "../../utils/FormatNumber";
 import { truncateText } from "../../utils/truncateText";
+import LikeFood from "../../ui/LikeFood";
 
 function Section({ foods }) {
   return (
@@ -28,9 +30,7 @@ function Section({ foods }) {
                   <h3 className="font-semibold text-sm sm:text-lg text-secondery-800">
                     {food.title}
                   </h3>
-                  <span className="hidden sm:block">
-                    <CiHeart className="w-6 h-6" />
-                  </span>
+                  <LikeFood id={food._id}/>
                 </div>
 
                 <div className="flex justify-end sm:justify-between items-center w-full">
