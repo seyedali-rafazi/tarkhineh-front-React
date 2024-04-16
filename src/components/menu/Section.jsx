@@ -8,6 +8,7 @@ import {
 } from "../../utils/FormatNumber";
 import { truncateText } from "../../utils/truncateText";
 import LikeFood from "../../ui/LikeFood";
+import { OrderButton } from "../../ui/Button";
 
 function Section({ foods }) {
   return (
@@ -16,7 +17,7 @@ function Section({ foods }) {
         {foods.map((food) => (
           <div
             key={food._id}
-            className="border rounded-lg border-rose-100 flex min-h-36 ">
+            className="border rounded-lg border-rose-100 flex min-h-36">
             <div className="">
               <img
                 className="min-w-28 h-full w-full"
@@ -30,7 +31,7 @@ function Section({ foods }) {
                   <h3 className="font-semibold text-sm sm:text-lg text-secondery-800">
                     {food.title}
                   </h3>
-                  <LikeFood id={food._id}/>
+                  <LikeFood id={food._id} />
                 </div>
 
                 <div className="flex justify-end sm:justify-between items-center w-full">
@@ -78,9 +79,7 @@ function Section({ foods }) {
                 <span className="sm:hidden">
                   <CiHeart className="w-6 h-6" />
                 </span>
-                <button className="text-xs sm:text-sm md:text:text-md bg-primary text-secondery-50 rounded-lg px-5 py-2">
-                  افزودن به سبد خرید
-                </button>
+                <OrderButton id={food._id}/>
               </div>
             </div>
           </div>

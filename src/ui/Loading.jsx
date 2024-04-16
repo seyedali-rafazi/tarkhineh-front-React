@@ -1,7 +1,7 @@
 import React from "react";
-import { Oval } from "react-loader-spinner";
+import { Oval, ThreeDots } from "react-loader-spinner";
 
-function Loading() {
+export default function Loading() {
   return (
     <div className="flex h-screen w-full justify-center items-center">
       <Oval
@@ -17,4 +17,19 @@ function Loading() {
   );
 }
 
-export default Loading;
+export function LoadingBars() {
+  return (
+    <div className="flex justify-center items-center h-full">
+      <ThreeDots
+        visible={true}
+        height="20"
+        width="20"
+        color="#4fa94d"
+        radius="9"
+        ariaLabel="three-dots-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+      />
+    </div>
+  );
+}

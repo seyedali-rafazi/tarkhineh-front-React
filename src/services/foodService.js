@@ -29,3 +29,21 @@ export function getUserFavourit(id) {
     .post(`/user/set-favorite-product/${id}`)
     .then(({ data }) => data.data);
 }
+
+export function addToCard(productId) {
+  return http
+    .post(`/cart/add`, {productId} )
+    .then(({ data }) => data.data);
+}
+
+export function removeOneCard(productId) {
+  return http
+    .post(`/cart/remove`, {productId} )
+    .then(({ data }) => data.data);
+}
+
+export function deleteFromCart(productId) {
+  return http
+    .post(`/cart/deleteProduct`, productId )
+    .then(({ data }) => data.data);
+}

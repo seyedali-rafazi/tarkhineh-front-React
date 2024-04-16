@@ -4,6 +4,8 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import SearchInput from "../../ui/SearchInput";
 import EmptySection from "../../ui/EmptySection";
 import useUser from "../authentication/useUser";
+import Loading from "../../ui/Loading";
+import FillFavourit from "./FillFavourit";
 
 const categoryGroups = [
   {
@@ -43,7 +45,14 @@ function FavoutritDashboard() {
   const navigate = useNavigate();
   const { isLoading, user } = useUser();
 
-  console.log(user);
+  if (isLoading) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
+
 
   const handleClick = (p) => {
     if (p == "all") {
@@ -84,7 +93,11 @@ function FavoutritDashboard() {
           <SearchInput />
         </div>
       </div>
-      <EmptySection text="شما در حال حاضر هیچ غذای مورد علاقه ای ثبت نکرده اید !" />
+      {user.favoriteProduct == null ? (
+        <EmptySection text="شما در حال حاضر هیچ غذای مورد علاقه ای ثبت نکرده اید !" />
+      ) : (
+        <FillFavourit favourits={user.favoriteProduct}/>
+      )}
     </div>
   );
 }

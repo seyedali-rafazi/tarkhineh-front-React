@@ -14,6 +14,8 @@ import MainFood from "./components/menu/MainFood";
 import Appetizer from "./components/menu/Appetizer";
 import Dessert from "./components/menu/Dessert";
 import Drink from "./components/menu/Drink";
+import Cart from "./pages/Cart";
+import Shipping from "./pages/Shipping";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +38,8 @@ function App() {
           <Route path="/dashboard/user-orders" element={<UserOrders />} />
           <Route path="/dashboard/user-favourits" element={<UserFavourits />} />
           <Route path="/dashboard/user-address" element={<UserAddress />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/shipping" element={<Shipping />} />
         </Routes>
       </SearchProvider>
     </QueryClientProvider>

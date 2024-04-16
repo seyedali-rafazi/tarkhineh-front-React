@@ -21,7 +21,6 @@ function EditDashboard({ user }) {
   const [email, setEmail] = useState(user.email);
 
   const onCkickSubmit = (data) => {
-
     updateUser(data, {
       onSuccess: () => {
         toast.success("داشبورد شما با موفقیت بروزرسانی شد");
@@ -43,6 +42,7 @@ function EditDashboard({ user }) {
         onSubmit={handleSubmit(onCkickSubmit)}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 ">
           <TextField
+            className="textField"
             label=" نام  و نام خانوادگی:"
             errors={errors}
             name="name"
@@ -55,6 +55,7 @@ function EditDashboard({ user }) {
             }}
           />
           <TextField
+            className="textField"
             label=" ایمیل:"
             errors={errors}
             name="email"

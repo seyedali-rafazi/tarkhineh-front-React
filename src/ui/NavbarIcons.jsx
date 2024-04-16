@@ -4,14 +4,15 @@ import { useForm } from "react-hook-form";
 import TextField from "./TextField";
 import useAuth from "../feachers/authentication/useAuth";
 import useUser from "../feachers/authentication/useUser";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Loading from "./Loading";
-import { headerButtonURLs } from "../utils/UrlAddress";
+import { userPnaelUrl, cartUrl } from "../utils/UrlAddress";
 import { baseLogo } from "../icons/Base-icons";
 import { useSearchMenu } from "../context/SearchContext";
 import { CiSearch } from "react-icons/ci";
 
 export default function NavbarIcons({ user }) {
+  const location = useLocation();
   const [open, setOpen] = useState(false);
   const [openSearch, setOpenSeach] = useState(false);
   const [activeButton, setActiveButton] = useState(null);
@@ -59,11 +60,7 @@ export default function NavbarIcons({ user }) {
   return (
     <div className="flex gap-2 ">
       <button
-        className={`${
-          headerButtonURLs.slice(4).includes(window.location.href)
-            ? ActiveUrlButton
-            : DisableButon
-        } hidden lg:block`}
+        className={`${DisableButon} hidden lg:block`}
         onClick={() => setOpenSeach(true)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -78,11 +75,9 @@ export default function NavbarIcons({ user }) {
 
       <button
         className={
-          headerButtonURLs.slice(0, 3).includes(window.location.href)
-            ? ActiveUrlButton
-            : DisableButon
+          cartUrl.includes(location.pathname) ? ActiveUrlButton : DisableButon
         }
-        onClick={() => {}}>
+        onClick={() => navigate("/cart")}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -98,9 +93,9 @@ export default function NavbarIcons({ user }) {
       </button>
 
       <button
-        onClick={() => handelUser()}
+        onClick={handelUser}
         className={
-          headerButtonURLs.slice(3).includes(window.location.href)
+          userPnaelUrl.includes(location.pathname)
             ? ActiveUrlButton
             : DisableButon
         }>
@@ -125,6 +120,7 @@ export default function NavbarIcons({ user }) {
             className="w-full space-y-4"
             onSubmit={handleSubmit(onCkickSubmit)}>
             <TextField
+              className="textField"
               label="شماره تلفن:"
               errors={errors}
               name="phoneNumber"
@@ -135,6 +131,7 @@ export default function NavbarIcons({ user }) {
               }}
             />
             <TextField
+              className="textField"
               label=" رمز عبور:"
               errors={errors}
               name="password"

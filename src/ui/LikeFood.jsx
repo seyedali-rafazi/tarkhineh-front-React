@@ -3,6 +3,7 @@ import useFavourit from "../feachers/user/favourits/useFavourit";
 import useUser from "../feachers/authentication/useUser";
 import { FaHeart } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
+import toast from "react-hot-toast";
 
 function LikeFood({ id }) {
   const { userFavourit, isPending } = useFavourit();
@@ -11,7 +12,11 @@ function LikeFood({ id }) {
   const handelClick = (id, index) => {
     userFavourit(id);
   };
-  return (
+  return !user ? (
+    <button>
+      <CiHeart className="w-6 h-6" />
+    </button>
+  ) : (
     <button onClick={() => handelClick(id)}>
       {user.favoriteProduct.map((favourit) => favourit._id).includes(id) ? (
         <FaHeart className="h-5 w-5 text-primary" />

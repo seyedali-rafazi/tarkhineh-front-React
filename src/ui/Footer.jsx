@@ -15,7 +15,7 @@ function Footer() {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 bg-cover bg-home-footer bg-center w-full h-72 mt-3 justify-center content-center gap-5">
+    <footer className="grid grid-cols-1 lg:grid-cols-2 bg-cover bg-home-footer bg-center w-full h-72 mt-14 justify-center content-center gap-5 ">
       <div className="flex justify-evenly gap-14">
         <div className="flex flex-col gap-4">
           <h2 className="font-bold text-lg text-secondery-100">دسترسی آسان</h2>
@@ -104,7 +104,7 @@ function Footer() {
           </div>
         </form>
       </div>
-    </div>
+    </footer>
   );
 }
 

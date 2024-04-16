@@ -15,9 +15,7 @@ function FullAddress({ user, setOpen, open, onCkickSubmitAddress }) {
     <div className="w-full md:w-3/4  border rounded-lg border-primary h-auto bg-red-50 p-10">
       <div className=" ">
         <div className="flex gap-3 items-center justify-between">
-          <p className="text-secondery-700">
-            {user.address}
-          </p>
+          <p className="text-secondery-700">{user.address}</p>
           <button onClick={() => setOpen(true)}>
             <PiPencilSimpleLine className="w-6 h-6 text-secondery-700" />
           </button>
@@ -29,6 +27,7 @@ function FullAddress({ user, setOpen, open, onCkickSubmitAddress }) {
           className="w-full space-y-4"
           onSubmit={handleSubmit(onCkickSubmitAddress)}>
           <TextField
+            className="textField"
             label="  آدرس:"
             errors={errors}
             name="address"
