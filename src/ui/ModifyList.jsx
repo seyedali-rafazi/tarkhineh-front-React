@@ -1,13 +1,13 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
-import ModifyQuantity from "./ModifyQuantity";
+import ModifyQuantity from "../components/cart/ModifyQuantity";
 import { GoTrash } from "react-icons/go";
-import useDeletFromCart from "../../feachers/food/deleteFromCart";
-import { truncateText } from "../../utils/truncateText";
+import useDeletFromCart from "../feachers/food/deleteFromCart";
+import { truncateText } from "../utils/truncateText";
 import {
   toPersianNumbers,
   toPersianNumbersWithComma,
-} from "../../utils/FormatNumber";
+} from "../utils/FormatNumber";
 
 function ModifyList({ products }) {
   const { deleteFood, isPending } = useDeletFromCart();
@@ -19,7 +19,7 @@ function ModifyList({ products }) {
   };
 
   return (
-    <div className="w-full  flex flex-col gap-3 border border-secondery-400 rounded-lg p-6 max-h-[60vh] overflow-auto">
+    <div className="w-full flex flex-col gap-3 border border-secondery-400 rounded-lg p-6 max-h-[60vh] overflow-auto">
       {products.map((product) => (
         <div
           key={product._id}

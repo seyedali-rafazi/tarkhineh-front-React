@@ -6,7 +6,7 @@ import ShippingStep from '../components/shipping/ShippingStep';
 import Footer from '../ui/Footer';
 
 function Shipping() {
-    const { user, isLoading } = useUser();
+    const { user,cart, isLoading } = useUser();
     if (isLoading) {
       return (
         <div className="flex justify-center items-center h-screen">
@@ -17,7 +17,7 @@ function Shipping() {
     return (
       <div className=" xl:max-w-7xl min-h-screen">
         <Navbar user={user} />
-        <ShippingStep />
+        <ShippingStep cart={cart} user={user}/>
         <Footer/>
       </div>
     );

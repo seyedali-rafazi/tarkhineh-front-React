@@ -238,3 +238,42 @@ table td {
   z-index: 1000;
 }
 
+/* Hide the default radio button */
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+  position: relative;
+  margin-right: 8px;
+}
+
+/* Style the custom radio button */
+input[type="radio"]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Style the checked radio button */
+input[type="radio"]:checked {
+  border-color: #f2f2f2;
+}
+
+input[type="radio"]:checked::before {
+  background-color: #00BA88;
+  width: 13px;
+  height: 13px;
+}

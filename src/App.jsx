@@ -16,6 +16,7 @@ import Dessert from "./components/menu/Dessert";
 import Drink from "./components/menu/Drink";
 import Cart from "./pages/Cart";
 import Shipping from "./pages/Shipping";
+import Payment from "./pages/Payment";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +41,7 @@ function App() {
           <Route path="/dashboard/user-address" element={<UserAddress />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/shipping" element={<Shipping />} />
+          <Route path="/payment" element={<Payment />} />
         </Routes>
       </SearchProvider>
     </QueryClientProvider>
