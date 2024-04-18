@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import InformationSection from "../../ui/InformationSection";
 import { MdOutlinePayment } from "react-icons/md";
+import OffPaymant from "./OffPaymant";
+import ChooseBank from "./ChooseBank";
+import PaymentPortal from "./PaymentPortal";
 
 function PaymentSection({ products, user }) {
+  const [paymentOption, setPaymentOption] = useState("bank");
   const navigate = useNavigate();
   return (
     <div className="flex flex-col gap-4 lg:flex-row  w-full">
-      <div className="flex gap-4 flex-col w-full justify-between"></div>
+      <div className="flex gap-4 flex-col w-full justify-between">
+        <OffPaymant />
+        <ChooseBank setPaymentOption={setPaymentOption}/>
+        <PaymentPortal paymentOption={paymentOption}/>
+      </div>
       <InformationSection products={products} shippingPrice="29000">
         <button
           onClick={() => navigate("/payment")}

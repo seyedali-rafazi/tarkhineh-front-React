@@ -11,13 +11,13 @@ function ChooseDelivery() {
       <form className="flex flex-col w-full justify-start items-start lg:flex-row lg:justify-between lg:items-center lg:w-2/3">
         <div className="flex p-3 lg:p-0 gap-1">
           <input type="radio" name="delivery-method" className="text-primary" />
-          <div className="flex flex-col text-secondery-600">
+          <div className="flex items-center flex-col text-secondery-600">
             <p>ارسال توسط پیک</p>
             <p className="text-xs">توسط پیک ارسال میشود</p>
           </div>
           <span className="text-secondery-600">{truckFast}</span>
         </div>
-        <div className="flex p-3 lg:p-0 gap-1">
+        <div className="flex items-center p-3 lg:p-0 gap-1">
           <input type="radio" name="delivery-method" />
           <div className="flex flex-col text-secondery-600">
             <p>تحویل حضوری</p>
