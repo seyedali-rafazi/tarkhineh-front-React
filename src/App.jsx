@@ -28,7 +28,6 @@ function App() {
       <SearchProvider>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/*" element={<Navigate to="/home" />} />
           <Route path="/branch-menu" element={<BranchMenu />}>
             <Route index element={<Navigate to="mainfood" replace />} />
             <Route path="mainfood" element={<MainFood />} />

@@ -1,30 +1,28 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
 import { toPersianNumbers } from "../../utils/FormatNumber";
 import NavbarOption from "../../ui/NavbarOption";
 
 import {
-  likeIcon,
   likeSolidIcon,
-  locationIcon,
   locationSolidIcon,
-  logOutIcon,
-  userIcon,
   userSolidIcon,
-  walletIcon,
   walletSolidIcon,
 } from "../../icons/dashboard-icon";
 import { TbLogout } from "react-icons/tb";
 import useUser from "../authentication/useUser";
-import useLogout from "../authentication/useLogout";
-import Modal from "../../ui/Modal";
+
 import Exist from "../../ui/Exist";
+import { LoadingBars } from "../../ui/Loading";
 
 function SidebarLayout() {
   const { isLoading, user } = useUser();
   const [open, setOpen] = useState(false);
   if (isLoading) {
-    return;
+    return (
+      <div className="h-screen md:h-96 md:border md:border-secondery-500 rounded-lg p-4">
+        <LoadingBars width="100" />
+      </div>
+    );
   }
 
   return (
@@ -73,13 +71,14 @@ function SidebarLayout() {
           </NavbarOption>
           <button
             onClick={() => setOpen(true)}
-            className="flex items-center gap-2  py-2">
+            className="flex items-center gap-2  py-2"
+          >
             <span>
               <TbLogout className="w-6 h-6 text-error-200" />
             </span>
             <p className="font-semibold text-error-200">خروج</p>
           </button>
-          <Exist open={open}  onClose={() => setOpen(false)}/>
+          <Exist open={open} onClose={() => setOpen(false)} />
         </div>
       </div>
     </div>

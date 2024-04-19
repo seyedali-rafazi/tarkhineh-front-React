@@ -1,21 +1,26 @@
 import React, { useState } from "react";
 import { FaArrowRight } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
-import { emptyPage } from "../../../icons/dashboard-icon";
-import Modal from "../../../ui/Modal";
-import { useForm } from "react-hook-form";
-import TextField from "../../../ui/TextField";
 import useUpdateUser from "../../authentication/useUpdateUser";
 import toast from "react-hot-toast";
-import useUser from "../../authentication/useUser";
 import EmptyAddress from "./EmptyAddress";
-import Loading from "../../../ui/Loading";
 import FullAddress from "./FullAddress";
+import useUser from "../../authentication/useUser";
+import Loading from "../../../ui/Loading";
 
-function AddressDashboard({ user }) {
+function AddressDashboard() {
+  const { isLoading, user } = useUser();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const { isUpdating, updateUser } = useUpdateUser();
+
+  if (isLoading) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
 
   const onCkickSubmitAddress = (data) => {
     updateUser(data, {

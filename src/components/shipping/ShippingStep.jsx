@@ -5,9 +5,19 @@ import { GoTrash } from "react-icons/go";
 import EmptySection from "../../ui/EmptySection";
 import { shippingBaner } from "../../icons/ShippingIcon";
 import ShippingSection from "./ShippingSection";
+import useUser from "../../feachers/authentication/useUser";
+import Loading from "../../ui/Loading";
 
-function ShippingStep({ user, cart }) {
+function ShippingStep() {
   const navigate = useNavigate();
+  const { user, cart, isLoading } = useUser();
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col justify-center items-center gap-4 my-5 w-full">

@@ -5,13 +5,17 @@ import Sidebar from "./Sidebar";
 import NavbarIcons from "./NavbarIcons";
 import NavbarOptions from "./NavbarOptions";
 import useUser from "../feachers/authentication/useUser";
-import Loading from "./Loading";
 
-function Navbar({ user }) {
+function Navbar() {
   const [open, setOpen] = useState(false);
+  const { isLoading, user } = useUser();
 
   return (
-    <div className="shadow-md">
+    <div
+      className={`${
+        isLoading ? "shadow-md w-full blur-md" : "shadow-md w-full"
+      }`}
+    >
       <div className={`flex justify-evenly py-5 items-center`}>
         <button onClick={() => setOpen(true)} className="lg:hidden">
           <RxHamburgerMenu className="w-6 h-6" />
@@ -22,7 +26,7 @@ function Navbar({ user }) {
         <div className="hidden lg:flex gap-3">
           <NavbarOptions />
         </div>
-        <NavbarIcons user={user} />
+        <NavbarIcons user={user}/>
       </div>
     </div>
   );

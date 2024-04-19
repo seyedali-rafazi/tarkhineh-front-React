@@ -10,25 +10,6 @@ export default function NavbarOptions() {
           <p>صفحه اصلی </p>
         </div>
       </NavbarOption>
-      <NavbarOption path="/branch">
-        <div className="flex justify-start gap-2">
-          <img
-            className="lg:hidden"
-            width="21"
-            src="icons/menu-board.svg"
-            alt=""
-          />
-          <div className="flex justify-between w-full">
-            <p>شعبه</p>
-            <img
-              className="hidden lg:block"
-              width="18"
-              src="icons/arrow-down.svg"
-              alt=""
-            />
-          </div>
-        </div>
-      </NavbarOption>
       <NavbarOption path="/branch-menu">
         <div className="flex justify-start gap-2">
           <img
@@ -39,12 +20,6 @@ export default function NavbarOptions() {
           />
           <div className="flex justify-between w-full">
             <p>منو</p>
-            <img
-              className="hidden lg:block"
-              width="18"
-              src="icons/arrow-down.svg"
-              alt=""
-            />
           </div>
         </div>
       </NavbarOption>

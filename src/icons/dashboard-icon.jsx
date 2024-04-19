@@ -72,6 +72,18 @@ const locationIcon = (
     />
   </svg>
 );
+const tinyLocationIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+    <path
+      fill="currentColor"
+      d="M8.002 9.447a2.576 2.576 0 1 1 0-5.153 2.576 2.576 0 1 1 0 5.153Zm0-4.154A1.58 1.58 0 1 0 8 8.455a1.58 1.58 0 0 0 .002-3.162Z"
+    />
+    <path
+      fill="currentColor"
+      d="M8.001 15.173a3.98 3.98 0 0 1-2.753-1.113c-1.967-1.893-4.14-4.913-3.32-8.507C2.668 2.293 5.514.833 8 .833h.007c2.486 0 5.333 1.46 6.073 4.727.813 3.593-1.36 6.607-3.327 8.5a3.98 3.98 0 0 1-2.753 1.113Zm0-13.34c-1.94 0-4.433 1.034-5.093 3.94-.72 3.14 1.253 5.847 3.04 7.56a2.95 2.95 0 0 0 4.113 0c1.78-1.713 3.753-4.42 3.047-7.56C12.44 2.867 9.94 1.833 8 1.833Z"
+    />
+  </svg>
+);
 
 const locationSolidIcon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
@@ -153,5 +165,6 @@ export {
   logOutIcon,
   emptyPage,
   calender,
-  tinyWalletIcon
+  tinyWalletIcon,
+  tinyLocationIcon
 };

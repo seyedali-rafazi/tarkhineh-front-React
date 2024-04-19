@@ -5,9 +5,19 @@ import { useNavigate } from "react-router-dom";
 import EmptySection from "../../ui/EmptySection";
 import { paymentBanner } from "../../icons/PaymentIcon";
 import PaymentSection from "./PaymentSection";
+import useUser from "../../feachers/authentication/useUser";
+import Loading from "../../ui/Loading";
 
-function PaymentStep({ user, cart }) {
+function PaymentStep() {
   const navigate = useNavigate();
+  const { user, cart, isLoading } = useUser();
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col justify-center items-center gap-4 my-5 w-full">
@@ -27,7 +37,7 @@ function PaymentStep({ user, cart }) {
       </div>
 
       <div className=" w-full flex justify-center px-5 md:px-12">
-        {cart.productDetail.length == 0  ? (
+        {cart.productDetail.length == 0 ? (
           <div className="border border-red-100 rounded-lg w-full">
             <EmptySection text="شما هنوز محصولی انتخاب نکردید!" />
           </div>

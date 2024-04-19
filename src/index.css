@@ -62,7 +62,7 @@ body {
 
 /* For WebKit-based browsers */
 ::-webkit-scrollbar {
-  width: 12px; /* Width of the entire scrollbar */
+  width: 2px; /* Width of the entire scrollbar */
 }
 
 ::-webkit-scrollbar-track {

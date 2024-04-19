@@ -16,7 +16,7 @@ function OrderDashboard() {
   }
 
   return (
-    <div className="flex flex-col items-center gap-5 border border-secondery-500 rounded-lg p-5">
+    <div className="flex flex-col w-full items-center gap-5 border border-secondery-500 rounded-lg p-5 ">
       <button
         onClick={() => navigate(-1)}
         className="md:hidden flex justify-start w-full"

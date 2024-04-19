@@ -19,12 +19,14 @@ function ModifyQuantity({ quantity, id }) {
       <button onClick={handelPLus}>+</button>
       <span>
         {addLoading || removeLoading ? (
-          <LoadingBars />
+          <LoadingBars width={"20"} />
         ) : (
           toPersianNumbers(quantity)
         )}
       </span>
-      <button onClick={handelMinus}>{quantity == 1 ? <GoTrash className="w-3 h-3 text-primary" /> : "-"}</button>
+      <button onClick={handelMinus}>
+        {quantity == 1 ? <GoTrash className="w-3 h-3 text-primary" /> : "-"}
+      </button>
     </div>
   );
 }

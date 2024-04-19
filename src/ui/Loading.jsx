@@ -17,13 +17,13 @@ export default function Loading() {
   );
 }
 
-export function LoadingBars() {
+export function LoadingBars({width}) {
   return (
     <div className="flex justify-center items-center h-full">
       <ThreeDots
         visible={true}
-        height="20"
-        width="20"
+        height={width}
+        width={width}
         color="#4fa94d"
         radius="9"
         ariaLabel="three-dots-loading"
