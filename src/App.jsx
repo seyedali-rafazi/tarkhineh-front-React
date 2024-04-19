@@ -17,6 +17,7 @@ import Drink from "./components/menu/Drink";
 import Cart from "./pages/Cart";
 import Shipping from "./pages/Shipping";
 import Payment from "./pages/Payment";
+import SuccessPayment from "./pages/SuccessPayment";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ function App() {
       <SearchProvider>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/*" element={<Navigate to="/home" />} />
           <Route path="/branch-menu" element={<BranchMenu />}>
             <Route index element={<Navigate to="mainfood" replace />} />
             <Route path="mainfood" element={<MainFood />} />
@@ -42,6 +44,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/payment" element={<Payment />} />
+          <Route path="/successful-payment" element={<SuccessPayment />} />
         </Routes>
       </SearchProvider>
     </QueryClientProvider>

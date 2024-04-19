@@ -1,5 +1,3 @@
-import useUser from "../feachers/authentication/useUser";
-
 export function totalPrice(products) {
   const totalPrice = products.reduce((total, product) => {
     return total + parseInt(product.offPrice * product.quantity.quantity);

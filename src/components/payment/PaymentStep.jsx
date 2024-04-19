@@ -27,7 +27,7 @@ function PaymentStep({ user, cart }) {
       </div>
 
       <div className=" w-full flex justify-center px-5 md:px-12">
-        {cart.productDetail == [] ? (
+        {cart.productDetail.length == 0  ? (
           <div className="border border-red-100 rounded-lg w-full">
             <EmptySection text="شما هنوز محصولی انتخاب نکردید!" />
           </div>

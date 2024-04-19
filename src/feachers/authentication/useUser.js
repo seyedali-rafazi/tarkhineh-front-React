@@ -6,6 +6,6 @@ export default function useUser() {
     queryKey: ["user"],
     queryFn: getUser,
   });
-  const { user , cart } = data || {};
-  return { user, cart , isLoading };
+  const { user, cart, payments } = data || {};
+  return { user, cart, payments, isLoading };
 }

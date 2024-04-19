@@ -19,13 +19,13 @@ function OffPaymant() {
   };
 
   return (
-    <div className="flex justify-evenly items-center border border-secondery-400 rounded-lg px-3 py-5">
-      <div className="flex gap-2">
+    <div className="flex flex-col lg:flex-row gap-4 justify-evenly items-center border border-secondery-400 rounded-lg px-3 py-5">
+      <div className="flex border-b border-secondery-400 py-3 gap-2 w-full lg:border-b-0 lg:py-0 lg:w-1/3">
         <span className="text-secondery-500">{offIcon}</span>
         <p>ثبت کد تخفیف</p>
       </div>
       <form
-        className="flex gap-2 items-center justify-center h-full w-2/4"
+        className="flex gap-2 items-center justify-center h-full w-full md:w-2/4"
         onSubmit={handleSubmit(onCkickSubmit)}
       >
         <div className="textField ">
