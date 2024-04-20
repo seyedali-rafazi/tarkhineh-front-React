@@ -9,7 +9,7 @@ import Loading from "../../../ui/Loading";
 
 function OrderDashboard() {
   const navigate = useNavigate();
-  const { cart ,payments , isLoading } = useUser();
+  const { payments , isLoading } = useUser();
 
   if(isLoading){
     return <Loading/>
@@ -19,7 +19,7 @@ function OrderDashboard() {
     <div className="flex flex-col w-full items-center gap-5 border border-secondery-500 rounded-lg p-5 ">
       <button
         onClick={() => navigate(-1)}
-        className="md:hidden flex justify-start w-full"
+        className="lg:hidden flex justify-start w-full"
       >
         <FaArrowRight />
       </button>

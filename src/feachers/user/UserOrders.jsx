@@ -6,13 +6,13 @@ import OrderDashboard from "./order-section/OrderDashboard";
 function UserOrders() {
   return (
     <div>
-      <Navbar  />
-      <div className="container xl:max-w-7xl px-5">
-        <div className=" w-full grid grid-cols-8 gap-8 my-10 ">
-          <div className="hidden lg:grid lg:col-span-2 ">
+      <Navbar />
+      <div className="flex w-full justify-center ">
+        <div className="container grid grid-cols-8 max-w-7xl gap-4 mt-10 px-5">
+          <div className="hidden lg:grid col-span-8 lg:col-span-2 ">
             <SidebarLayout />
           </div>
-          <div className="col-span-8 lg:col-span-6">
+          <div className="px-5 col-span-8 lg:grid lg:col-span-6">
             <OrderDashboard />
           </div>
         </div>

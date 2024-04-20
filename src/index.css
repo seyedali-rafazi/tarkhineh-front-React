@@ -160,6 +160,7 @@ table td {
   color: white;
 }
 
+
 .swiper {
   width: 100%;
   height: 100%;
@@ -220,6 +221,12 @@ table td {
 }
 .swiper-button-next{
   color: #FFF2F2 !important;
+}
+
+/*-----------------------swiper-slide-dasboard--------------------*/
+.swiper-dasboard{
+  width: 169px !important;
+  margin: 5px !important;
 }
 
 :root {
