@@ -18,6 +18,7 @@ import Cart from "./pages/Cart";
 import Shipping from "./pages/Shipping";
 import Payment from "./pages/Payment";
 import SuccessPayment from "./pages/SuccessPayment";
+import Franchise from "./pages/Franchise";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ function App() {
             <Route path="dessert" element={<Dessert />} />
             <Route path="drink" element={<Drink />} />
           </Route>
+          <Route path="/franchise" element={<Franchise />} />
           <Route path="/dashboard" element={<UserProfile />} />
           <Route path="/dashboard/profile" element={<UserProfileEdit />} />
           <Route path="/dashboard/user-orders" element={<UserOrders />} />

@@ -121,7 +121,7 @@ export default function NavbarIcons({ user }) {
             onSubmit={handleSubmit(onCkickSubmit)}>
             <TextField
               className="textField"
-              label="شماره تلفن:"
+              placeholder="شماره تلفن:"
               errors={errors}
               name="phoneNumber"
               type="number"
@@ -132,7 +132,7 @@ export default function NavbarIcons({ user }) {
             />
             <TextField
               className="textField"
-              label=" رمز عبور:"
+              placeholder=" رمز عبور:"
               errors={errors}
               name="password"
               type="text"

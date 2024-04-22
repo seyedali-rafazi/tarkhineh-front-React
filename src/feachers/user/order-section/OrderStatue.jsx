@@ -13,7 +13,6 @@ import { totalOffAmount, totalPrice } from "../../../utils/Prices";
 import UserOrderStatue from "./UserOrderStatue";
 
 function OrderStatue({ payments }) {
-  console.log(payments[4].cart.productDetail);
   return payments.map((payment) => (
     <div
       className="border w-full border-red-100 p-5 rounded-lg  space-y-3"

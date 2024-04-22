@@ -14,10 +14,7 @@ function TextField({
   className,
 }) {
   return (
-    <div className="space-y-2">
-      <label className="text-sm text-secondery-700">
-        {label} {required && <span className="text-error">*</span>}
-      </label>
+    <div className="space-y-2 w-full">
       <input
         className={className}
         {...register(name, validationSchema)}

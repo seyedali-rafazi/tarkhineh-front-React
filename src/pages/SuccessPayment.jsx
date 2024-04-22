@@ -5,7 +5,7 @@ import SuccessfulPayment from "../components/UserPay/SuccessfulPayment";
 
 function SuccessPayment() {
   return (
-    <div className="container xl:max-w-7xl min-h-screen">
+    <div className="container xl:max-w-7xl min-h-screen max-w-full">
       <Navbar />
       <SuccessfulPayment />
       <Footer />

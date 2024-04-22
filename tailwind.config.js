@@ -26,7 +26,9 @@ export default {
         "home-branch-2": "url('/styles/chalos.jpg')", // Replace with the actual path or URL
         "home-branch-3": "url('/styles/aghdasieh.jpg')", // Replace with the actual path or URL
         "home-branch-4": "url('/styles/vanak.jpg')", // Replace with the actual path or URL
-        "successful-payment": "url('/styles/successful-payment-Background.jpg')", // Replace with the actual path or URL
+        "successful-payment":
+          "url('/styles/successful-payment-Background.jpg')", // Replace with the actual path or URL
+        "franchise-banner": "url('/styles/franchise-banner.jpg')", // Replace with the actual path or URL
       },
       container: {
         center: true,

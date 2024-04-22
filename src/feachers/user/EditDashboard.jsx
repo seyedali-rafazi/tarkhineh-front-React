@@ -45,7 +45,7 @@ function EditDashboard({user}) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 ">
           <TextField
             className="textField"
-            label=" نام  و نام خانوادگی:"
+            placeholder=" نام  و نام خانوادگی:"
             errors={errors}
             name="name"
             type="text"
@@ -58,7 +58,7 @@ function EditDashboard({user}) {
           />
           <TextField
             className="textField"
-            label=" ایمیل:"
+            placeholder=" ایمیل:"
             errors={errors}
             name="email"
             type="text"

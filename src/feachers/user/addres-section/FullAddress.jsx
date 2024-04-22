@@ -28,7 +28,7 @@ function FullAddress({ user, setOpen, open, onCkickSubmitAddress }) {
           onSubmit={handleSubmit(onCkickSubmitAddress)}>
           <TextField
             className="textField"
-            label="  آدرس:"
+            placeholder="  آدرس:"
             errors={errors}
             name="address"
             type="text"
