@@ -40,6 +40,16 @@ export function OrderButton({ id }) {
     );
   }
 
+  if (user.cart == null || 0) {
+    return (
+      <button
+        onClick={() => handleClick(id)}
+        className="text-xs bg-primary text-secondery-50 rounded-lg px-5 py-2 w-28 sm:text-sm md:text-md md:w-48"
+      >
+        <p>افزودن</p>
+      </button>
+    );
+  }
   if (user.cart.products.map((product) => product.productId).includes(id)) {
     return (
       <button
