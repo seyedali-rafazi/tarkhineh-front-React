@@ -17,9 +17,9 @@ const userPnaelUrl = [
   "/dashboard/user-address",
 ];
 
-const cartUrl = ["/cart"];
+const cartUrl = ["/cart", "/shipping", "/payment", "/successful-payment"];
 
-const shipping = ["/shipping"]
+const shipping = ["/shipping"];
 
 const sideBarURLs = {
   profile: "http://localhost:3000/dashboard/profile",
@@ -28,4 +28,4 @@ const sideBarURLs = {
   address: "http://localhost:3000/dashboard/address",
 };
 
-export { headerButtonURLs, sideBarURLs, userPnaelUrl, cartUrl  ,shipping};
+export { headerButtonURLs, sideBarURLs, userPnaelUrl, cartUrl, shipping };

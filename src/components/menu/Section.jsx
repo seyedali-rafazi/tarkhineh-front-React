@@ -19,9 +19,9 @@ function Section({ foods }) {
             key={food._id}
             className="border rounded-lg border-rose-100 flex min-h-36"
           >
-            <div className="">
+            <div className="rounded-r-lg">
               <img
-                className="min-w-28 h-full w-full"
+                className="min-w-28 h-full w-full rounded-r-lg"
                 src={food.imageLink}
                 alt={food.title}
               />
