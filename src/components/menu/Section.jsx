@@ -13,11 +13,12 @@ import { OrderButton } from "../../ui/Button";
 function Section({ foods }) {
   return (
     <div>
-      <div className="grid gap-3 grid-cols-1 lg:grid-cols-2">
+      <div className="grid gap-3 grid-cols-1 lg:grid-cols-2 p-5">
         {foods.map((food) => (
           <div
             key={food._id}
-            className="border rounded-lg border-rose-100 flex min-h-36">
+            className="border rounded-lg border-rose-100 flex min-h-36"
+          >
             <div className="">
               <img
                 className="min-w-28 h-full w-full"
@@ -31,7 +32,9 @@ function Section({ foods }) {
                   <h3 className="font-semibold text-sm sm:text-lg text-secondery-800">
                     {food.title}
                   </h3>
-                  <LikeFood id={food._id} />
+                  <span className="hidden sm:block">
+                    <LikeFood id={food._id} />
+                  </span>
                 </div>
 
                 <div className="flex justify-end sm:justify-between items-center w-full">
@@ -52,7 +55,8 @@ function Section({ foods }) {
                           food.discount == 0
                             ? ""
                             : "bg-rose-200 text-rose-500 px-1 py-0.5 rounded-full text-sm"
-                        }`}>
+                        }`}
+                      >
                         {food.discount == 0 ? (
                           ""
                         ) : (
@@ -77,9 +81,9 @@ function Section({ foods }) {
                   ))}
                 </div>
                 <span className="sm:hidden">
-                  <CiHeart className="w-6 h-6" />
+                  <LikeFood id={food._id} />
                 </span>
-                <OrderButton id={food._id}/>
+                <OrderButton id={food._id} />
               </div>
             </div>
           </div>

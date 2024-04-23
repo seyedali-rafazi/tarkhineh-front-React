@@ -21,6 +21,7 @@ import SuccessPayment from "./pages/SuccessPayment";
 import Franchise from "./pages/Franchise";
 import About from "./pages/About";
 import Call from "./pages/Call";
+import SearchResult from "./components/home/SearchResult";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ function App() {
       <SearchProvider>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/search-result" element={<SearchResult />} />
           <Route path="/branch-menu" element={<BranchMenu />}>
             <Route index element={<Navigate to="mainfood" replace />} />
             <Route path="mainfood" element={<MainFood />} />

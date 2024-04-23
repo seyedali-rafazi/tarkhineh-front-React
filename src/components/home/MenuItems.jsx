@@ -29,7 +29,7 @@ function MenuItems() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setSearchParams({ q: searchQuery });
-    navigate(`/menu?search=${encodeURIComponent(searchQuery)}`);
+    navigate(`/search-result?search=${encodeURIComponent(searchQuery)}`);
   };
 
   return (

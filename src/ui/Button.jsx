@@ -10,7 +10,6 @@ export function OrderButton({ id }) {
   const { isLoading, user } = useUser();
   const navigate = useNavigate();
   const handleClick = (productId) => {
-
     addFood(productId);
   };
 
@@ -34,7 +33,8 @@ export function OrderButton({ id }) {
     return (
       <button
         onClick={handelUser}
-        className="text-xs sm:text-sm md:text-md bg-primary text-secondery-50 rounded-lg px-5 py-2 w-48">
+        className="text-xs bg-primary text-secondery-50 rounded-lg px-5 py-2 w-28 sm:text-sm md:text-md md:w-48"
+      >
         <p>افزودن</p>
       </button>
     );
@@ -44,7 +44,8 @@ export function OrderButton({ id }) {
     return (
       <button
         onClick={handelExistProduct}
-        className="text-xs sm:text-sm md:text-md bg-secondery-50 text-primary rounded-lg px-5 py-2 w-48 border border-primary ">
+        className="text-xs sm:text-sm md:text-md bg-secondery-50 text-primary rounded-lg px-5 py-2 w-48 border border-primary "
+      >
         <p>مشاهده سبد خرید</p>
       </button>
     );
@@ -53,7 +54,8 @@ export function OrderButton({ id }) {
   return (
     <button
       onClick={() => handleClick(id)}
-      className="text-xs sm:text-sm md:text-md bg-primary text-secondery-50 rounded-lg px-5 py-2 w-48">
+      className="text-xs bg-primary text-secondery-50 rounded-lg px-5 py-2 w-28 sm:text-sm md:text-md md:w-48"
+    >
       <p>افزودن</p>
     </button>
   );

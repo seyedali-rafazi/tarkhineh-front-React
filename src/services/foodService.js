@@ -1,5 +1,9 @@
 import http from "./httpService";
 
+export function getAllFood(qs) {
+  return http.get(`/product/list${qs}`).then(({ data }) => data.data);
+}
+
 export function getMainFood(qs) {
   return http
     .get(`/product/list${qs ? qs : "?category=mainFood"}`)
@@ -31,19 +35,15 @@ export function getUserFavourit(id) {
 }
 
 export function addToCard(productId) {
-  return http
-    .post(`/cart/add`, {productId} )
-    .then(({ data }) => data.data);
+  return http.post(`/cart/add`, { productId }).then(({ data }) => data.data);
 }
 
 export function removeOneCard(productId) {
-  return http
-    .post(`/cart/remove`, {productId} )
-    .then(({ data }) => data.data);
+  return http.post(`/cart/remove`, { productId }).then(({ data }) => data.data);
 }
 
 export function deleteFromCart(productId) {
   return http
-    .post(`/cart/deleteProduct`, productId )
+    .post(`/cart/deleteProduct`, productId)
     .then(({ data }) => data.data);
 }

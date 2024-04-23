@@ -19,7 +19,7 @@ function Filter({ products }) {
 
   return (
     <div className="flex gap-4 flex-col lg:flex-row justify-center items-center mt-4">
-      <div className="flex justify-start sm:justify-center lg:justify-start gap-3 whitespace-nowrap overflow-scroll overflow-y-hidden md:overflow-hidden w-screen relative">
+      <div className="flex justify-start sm:justify-center lg:justify-start gap-3 whitespace-nowrap overflow-scroll overflow-y-hidden no-scrollbar md:overflow-hidden w-screen relative">
         {products.map((product) => (
           <div key={product.id}>
             <button

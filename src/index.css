@@ -75,6 +75,23 @@ body {
   background-color: #f1f1f1; /* Color of the corner (where vertical and horizontal scrollbars meet) */
 }
 
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+      display: none;
+  }
+ /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+}
+ /* Hide scrollbar for IE, Edge and Firefox */
+ .scrollbarDesctop {
+  -ms-overflow-style: block;  /* IE and Edge */
+  scrollbar-width: block;  /* Firefox */
+}
+}
+
 button {
   cursor: pointer;
   outline: none;
