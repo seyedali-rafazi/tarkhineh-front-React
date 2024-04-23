@@ -12,7 +12,7 @@ function UserOrders() {
           <div className="hidden lg:grid col-span-8 lg:col-span-2 ">
             <SidebarLayout />
           </div>
-          <div className="px-5 col-span-8 lg:grid lg:col-span-6">
+          <div className="col-span-8 lg:grid lg:col-span-6 lg:px-5">
             <OrderDashboard />
           </div>
         </div>

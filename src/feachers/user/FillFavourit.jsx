@@ -6,11 +6,12 @@ import { OrderButton } from "../../ui/Button";
 
 function FillFavourit({ favourits }) {
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
       {favourits.map((favourit) => (
         <div
           key={favourit._id}
-          className="flex flex-col gap-4 border border-rose-100 rounded-lg">
+          className="flex flex-col gap-4 border border-rose-100 rounded-lg"
+        >
           <div className="max-h-36">
             <img
               className="w-full h-full object-cover object-center rounded-t-lg"
@@ -36,7 +37,9 @@ function FillFavourit({ favourits }) {
                 &nbsp;تومان
               </div>
             </div>
-            <OrderButton id={favourit._id}/>
+            <div className="flex justify-center">
+              <OrderButton id={favourit._id} />
+            </div>
           </div>
         </div>
       ))}

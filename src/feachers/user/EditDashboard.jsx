@@ -32,14 +32,14 @@ function EditDashboard({user}) {
     <div className="flex flex-col items-center gap-5 border border-secondery-500 rounded-lg p-5">
       <button
         onClick={() => navigate(-1)}
-        className="md:hidden flex justify-start w-full"
+        className="lg:hidden flex justify-start w-full"
       >
         <FaArrowRight />
       </button>
       <p className="flex justify-start w-full font-bold text-lg">پروفایل من </p>
       <span className="w-full block h-0.5 bg-secondery-500 rounded-full"></span>
       <form
-        className="flex flex-col gap-10 items-center justify-center h-full w-2/3"
+        className="flex flex-col gap-10 items-center justify-center h-full w-full"
         onSubmit={handleSubmit(onCkickSubmit)}
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 ">
@@ -76,10 +76,10 @@ function EditDashboard({user}) {
         </div>
         <button
           type="submit"
-          className="col-start-1 mx-auto border-2 border-tint-600  font-bold text-primary bg-secondery-50 py-2 rounded-md flex  justify-center items-center gap-2 hover:bg-primary hover:text-secondery-50 duration-300 w-auto px-5"
+          className="col-start-1 mx-auto border-2 border-tint-600  font-bold text-primary bg-secondery-50 py-2 rounded-md flex  justify-center items-center gap-2 hover:bg-primary hover:text-secondery-50 duration-300 px-5"
         >
           <PiPencilSimpleLine className="w-6 h-6" />
-          <span>ویرایش اطلاعات شخصی</span>
+          <span className="text-xs">ویرایش اطلاعات شخصی</span>
         </button>
       </form>
     </div>

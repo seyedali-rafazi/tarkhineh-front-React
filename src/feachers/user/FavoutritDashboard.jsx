@@ -62,7 +62,7 @@ function FavoutritDashboard() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-5 border border-secondery-500 rounded-lg p-5">
+    <div className="flex flex-col items-center gap-5 border border-secondery-500 rounded-lg p-2">
       <button
         onClick={() => navigate(-1)}
         className="md:hidden flex justify-start w-full">
@@ -73,7 +73,7 @@ function FavoutritDashboard() {
       </p>
       <span className="w-full block h-0.5 bg-secondery-500 rounded-full"></span>
       <div className="hidden lg:flex justify-center items-center gap-4 w-full">
-        <div className="flex gap-3">
+        <div className="flex gap-1">
           {categoryGroups.map((categoryGroup) => (
             <div key={categoryGroup.id}>
               <button
