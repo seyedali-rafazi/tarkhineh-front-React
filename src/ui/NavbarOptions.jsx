@@ -29,7 +29,7 @@ export default function NavbarOptions() {
           <p>اعطای نمایندگی </p>
         </div>
       </NavbarOption>
-      <NavbarOption path="/about-our-company">
+      <NavbarOption path="/about">
         <div className="flex justify-start gap-2">
           <img
             className="lg:hidden"

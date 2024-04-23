@@ -25,7 +25,7 @@ const options = [
 
 function FranchiseOptions() {
   return (
-    <div className="flex gap-4 items-center justify-center h-fit px-5">
+    <div className="flex gap-2 items-center justify-center h-fit px-5">
       {options.map((option) => (
         <div
           key={option.id}

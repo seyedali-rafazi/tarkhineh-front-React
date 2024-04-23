@@ -50,7 +50,7 @@ function MenuInroduction() {
         </div>
         <div className="flex justify-end text-secondery-300">
           <button
-            onClick={() => navigate("/about-our-company")}
+            onClick={() => navigate("/about")}
             className="border border-secondery-300 rounded-md px-4 py-2 flex gap-2 items-center duration-300 transition-all">
             <span>اطلاعات بیشتر</span>
             <span>

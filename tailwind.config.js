@@ -29,6 +29,9 @@ export default {
         "successful-payment":
           "url('/styles/successful-payment-Background.jpg')", // Replace with the actual path or URL
         "franchise-banner": "url('/styles/franchise-banner.jpg')", // Replace with the actual path or URL
+        "about-banner": "url('/styles/about-us-banner.jpg')", // Replace with the actual path or URL
+        "call-banner": "url('/styles/contact-us-banner.jpg')", // Replace with the actual path or URL
+
       },
       container: {
         center: true,
