@@ -21,9 +21,9 @@ function Sidebar({ open, onClose }) {
     <div
       className={`${
         open
-          ? "backdrop-blur-sm absolute top-0 left-0 right-0 bottom-0 w-full h-screen bg-secondery-800 bg-opacity-30 modal "
+          ? "backdrop-blur-sm absolute top-0 left-0 right-0 bottom-0 w-full h-screen bg-secondery-800 bg-opacity-30"
           : ""
-      } lg:hidden`}>
+      } lg:hidden fixed modal`}>
       <div
         className={`fixed  top-0 right-0 max-w-xs h-screen bg-secondery-800 bg-opacity-30 modal lg:hidden transition-transform duration-300 ease-in-out transform ${
           open ? "" : "translate-x-full"

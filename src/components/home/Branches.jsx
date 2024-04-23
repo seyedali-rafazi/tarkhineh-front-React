@@ -3,28 +3,28 @@ import React from "react";
 const branches = [
   {
     imgstyle:
-      "bg-cover bg-center bg-home-branch-1 w-full  h-full h-[112px] md:h-[230px]",
+      "bg-cover bg-center bg-home-branch-1 w-full  h-full min-h-[112px] md:h-[230px]",
     nameBranch: "اکباتان",
     address: "شهرک اکباتان،فاز۳،مجتمع تجاری کوروش،طبقه سوم",
     id: 1,
   },
   {
     imgstyle:
-      "bg-cover bg-center bg-home-branch-2 w-full  h-full h-[112px] md:h-[230px]",
+      "bg-cover bg-center bg-home-branch-2 w-full  h-full min-h-[112px] md:h-[230px]",
     nameBranch: "چالوس",
     address: "چالوس،خیابان ۱۷ شهریور،بعد کوچه کوروش،جنب داروخانه دکتر میلانی",
     id: 2,
   },
   {
     imgstyle:
-      "bg-cover bg-center bg-home-branch-3 w-full  h-full h-[112px] md:h-[230px]",
+      "bg-cover bg-center bg-home-branch-3 w-full  h-full min-h-[112px] md:h-[230px]",
     nameBranch: "اقدسیه",
     address: "خیابان اقدسیه،نرسیده به میدان خیام،پلاک ۸",
     id: 3,
   },
   {
     imgstyle:
-      "bg-cover bg-center bg-home-branch-4 w-full h-full h-[112px] md:h-[230px]",
+      "bg-cover bg-center bg-home-branch-4 w-full h-full min-h-[112px] md:h-[230px]",
     nameBranch: "ونک",
     address: "میدان ونک، خیابان فردوسی، نبش کوچه نیلوفر، پلاک ۲۶",
     id: 4,

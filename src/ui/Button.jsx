@@ -44,7 +44,7 @@ export function OrderButton({ id }) {
     return (
       <button
         onClick={handelExistProduct}
-        className="text-xs sm:text-sm md:text-md bg-secondery-50 text-primary rounded-lg px-5 py-2 w-48 border border-primary "
+        className="text-xs  bg-secondery-50 text-primary rounded-lg px-1 py-2 w-28 border border-primary md:text-sm md:text-md md:w-48"
       >
         <p>مشاهده سبد خرید</p>
       </button>

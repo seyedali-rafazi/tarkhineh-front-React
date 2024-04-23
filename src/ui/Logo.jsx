@@ -5,7 +5,7 @@ function Logo() {
     <div>
       <svg
         width="150"
-        height="51"
+        height="40"
         viewBox="0 0 155 51"
         fill="none"
         xmlns="http://www.w3.org/2000/svg">

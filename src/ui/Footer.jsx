@@ -42,7 +42,7 @@ function Footer() {
           </ul>
         </div>{" "}
       </div>
-      <div className="hidden lg:flex flex-col pl-10">
+      <div className="hidden lg:flex flex-col pl-10 gap-4">
         <h2 className="font-bold text-lg text-secondery-100">پیام به ترخینه</h2>
         <form
           onSubmit={onCkickSubmit}
@@ -94,7 +94,7 @@ function Footer() {
               autoComplete="off"
               {...register("ourMessage")}
               placeholder="پیام شما"
-              className="textField !border-secondery-600 placeholder:text-secondery-400 mt-2 h-[125px]"
+              className="textField !border-secondery-600 placeholder:text-secondery-400 h-[125px]"
             />
             <button
               type="submit"

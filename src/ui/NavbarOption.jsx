@@ -8,7 +8,7 @@ function NavbarOption({ path, children }) {
       className={({ isActive }) =>
         `${
           isActive ? "text-tint-700" : ""
-        } py-2 text-md text-secondery-700 font-semibold ` 
+        } py-2 text-sm text-secondery-700 font-semibold md:text-lg ` 
       }>
       {children}
     </NavLink>

@@ -6,7 +6,7 @@ import Footer from "../../ui/Footer";
 
 function MenuLayout({ children }) {
   return (
-    <div className="container xl:max-w-7xl w-full min-h-screen">
+    <div className="container xl:max-w-7xl min-h-screen max-w-full">
       <Navbar />
       <GeneralSwiper />
       {children}

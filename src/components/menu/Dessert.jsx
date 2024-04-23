@@ -3,6 +3,7 @@ import Loading from "../../ui/Loading";
 import useDessert from "./useDessert";
 import Filter from "./Filter";
 import Section from "./Section";
+import FoodLoadingSkeleton from "../../ui/FoodLoadingSkeleton";
 
 const dessertGroup = [
   {
@@ -27,16 +28,18 @@ const dessertGroup = [
 
 function Dessert() {
   const { dessert, isLoading } = useDessert();
-  if (isLoading)
-    return (
-      <div>
-        <Loading />
-      </div>
-    );
   return (
     <div className="container max-w-6xl space-y-6">
       <Filter products={dessertGroup} />
-      <Section foods={dessert} />
+      {isLoading ? (
+        <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-4">
+          {Array.from({ length: 8 }).map((_, index) => (
+            <FoodLoadingSkeleton key={index} />
+          ))}
+        </div>
+      ) : (
+        <Section foods={dessert} />
+      )}
     </div>
   );
 }
