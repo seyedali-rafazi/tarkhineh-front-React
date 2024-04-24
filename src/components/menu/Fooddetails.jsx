@@ -1,9 +1,8 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useFoodById from "./useFoodById";
 import Footer from "../../ui/Footer";
 import { FaArrowRight, FaStar } from "react-icons/fa6";
-import { SlBasket } from "react-icons/sl";
 import LikeFood from "../../ui/LikeFood";
 import { toPersianNumbersWithComma } from "../../utils/FormatNumber";
 import { OrderButton } from "../../ui/Button";
@@ -11,6 +10,7 @@ import Loading from "../../ui/Loading";
 
 function Fooddetails() {
   const { isLoading, product } = useFoodById();
+  const navigate = useNavigate();
 
   if (isLoading) {
     return <Loading />;
@@ -21,7 +21,12 @@ function Fooddetails() {
     <div>
       <div>
         <div className="flex justify-center items-center bg-primary h-16 px-3">
-          <FaArrowRight className="w-6 h-6 text-secondery-50" />
+          <button>
+            <FaArrowRight
+              onClick={() => navigate(-1)}
+              className="w-6 h-6 text-secondery-50"
+            />
+          </button>
           <h2 className="w-full text-center font-bold text-xl text-secondery-50">
             جزيیات محصول
           </h2>
