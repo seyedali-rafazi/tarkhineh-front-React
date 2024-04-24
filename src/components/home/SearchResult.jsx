@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../../ui/Navbar";
 import Footer from "../../ui/Footer";
 import Section from "../menu/Section";
 import useAllFood from "../../feachers/food/useAllFood";
@@ -11,7 +10,6 @@ function SearchResult() {
 
   return (
     <div className="container xl:max-w-7xl min-h-screen max-w-full">
-      <Navbar />
       {isLoading ? (
         <Loading />
       ) : (

@@ -22,6 +22,7 @@ import Franchise from "./pages/Franchise";
 import About from "./pages/About";
 import Call from "./pages/Call";
 import SearchResult from "./components/home/SearchResult";
+import Navbar from "./ui/Navbar";
 
 const queryClient = new QueryClient();
 
@@ -30,29 +31,33 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Toaster />
       <SearchProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/search-result" element={<SearchResult />} />
-          <Route path="/branch-menu" element={<BranchMenu />}>
-            <Route index element={<Navigate to="mainfood" replace />} />
-            <Route path="mainfood" element={<MainFood />} />
-            <Route path="appetizer" element={<Appetizer />} />
-            <Route path="dessert" element={<Dessert />} />
-            <Route path="drink" element={<Drink />} />
-          </Route>
-          <Route path="/franchise" element={<Franchise />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/call-us" element={<Call />} />
-          <Route path="/dashboard" element={<UserProfile />} />
-          <Route path="/dashboard/profile" element={<UserProfileEdit />} />
-          <Route path="/dashboard/user-orders" element={<UserOrders />} />
-          <Route path="/dashboard/user-favourits" element={<UserFavourits />} />
-          <Route path="/dashboard/user-address" element={<UserAddress />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/shipping" element={<Shipping />} />
-          <Route path="/payment" element={<Payment />} />
-          <Route path="/successful-payment" element={<SuccessPayment />} />
-        </Routes>
+        <Navbar/>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/search-result" element={<SearchResult />} />
+            <Route path="/branch-menu" element={<BranchMenu />}>
+              <Route index element={<Navigate to="mainfood" replace />} />
+              <Route path="mainfood" element={<MainFood />} />
+              <Route path="appetizer" element={<Appetizer />} />
+              <Route path="dessert" element={<Dessert />} />
+              <Route path="drink" element={<Drink />} />
+            </Route>
+            <Route path="/franchise" element={<Franchise />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/call-us" element={<Call />} />
+            <Route path="/dashboard" element={<UserProfile />} />
+            <Route path="/dashboard/profile" element={<UserProfileEdit />} />
+            <Route path="/dashboard/user-orders" element={<UserOrders />} />
+            <Route
+              path="/dashboard/user-favourits"
+              element={<UserFavourits />}
+            />
+            <Route path="/dashboard/user-address" element={<UserAddress />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/shipping" element={<Shipping />} />
+            <Route path="/payment" element={<Payment />} />
+            <Route path="/successful-payment" element={<SuccessPayment />} />
+          </Routes>
       </SearchProvider>
     </QueryClientProvider>
   );
