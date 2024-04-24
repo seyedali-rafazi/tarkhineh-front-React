@@ -8,13 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import {
-  FreeMode,
-  Grid,
-  Navigation,
-  Pagination,
-  Virtual,
-} from "swiper/modules";
+import { Pagination } from "swiper/modules";
 
 function UserOrderStatue({ orders }) {
   return (

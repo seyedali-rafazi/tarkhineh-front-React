@@ -1,14 +1,7 @@
 import React from "react";
 import gregorianToPersian from "../../../utils/MonthFormater";
-import {
-  tinyWalletIcon,
-  calender,
-  tinyLocationIcon,
-} from "../../../icons/dashboard-icon";
-import {
-  toPersianNumbers,
-  toPersianNumbersWithComma,
-} from "../../../utils/FormatNumber";
+import { calender, tinyLocationIcon } from "../../../icons/dashboard-icon";
+import { toPersianNumbersWithComma } from "../../../utils/FormatNumber";
 import { totalOffAmount, totalPrice } from "../../../utils/Prices";
 import UserOrderStatue from "./UserOrderStatue";
 
@@ -56,7 +49,7 @@ function OrderStatue({ payments }) {
           <span>اقدسیه٬شمیرانات٬متجمع شمیران</span>
         </p>
       </div>
-        <UserOrderStatue orders={payment.cart.productDetail} />
+      <UserOrderStatue orders={payment.cart.productDetail} />
     </div>
   ));
 }

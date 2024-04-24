@@ -1,7 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { getUserFavourit } from "../../../services/foodService";
-import { useParams } from "react-router-dom";
 
 export default function useFavourit() {
   const queryClient = useQueryClient();

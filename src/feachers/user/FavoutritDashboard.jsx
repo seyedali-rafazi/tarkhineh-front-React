@@ -4,8 +4,8 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import SearchInput from "../../ui/SearchInput";
 import EmptySection from "../../ui/EmptySection";
 import useUser from "../authentication/useUser";
-import Loading from "../../ui/Loading";
 import FillFavourit from "./FillFavourit";
+import PanelSceleton from "../../ui/PanelSceleton";
 
 const categoryGroups = [
   {
@@ -45,15 +45,6 @@ function FavoutritDashboard() {
   const navigate = useNavigate();
   const { isLoading, user } = useUser();
 
-  if (isLoading) {
-    return (
-      <div>
-        <Loading />
-      </div>
-    );
-  }
-
-
   const handleClick = (p) => {
     if (p == "all") {
       return setSearchParams("");
@@ -61,11 +52,14 @@ function FavoutritDashboard() {
     setSearchParams({ category: p });
   };
 
-  return (
+  return isLoading ? (
+    <PanelSceleton />
+  ) : (
     <div className="flex flex-col items-center gap-5 border border-secondery-500 rounded-lg p-2">
       <button
         onClick={() => navigate(-1)}
-        className="md:hidden flex justify-start w-full">
+        className="lg:hidden flex justify-start w-full"
+      >
         <FaArrowRight />
       </button>
       <p className="flex justify-start w-full font-bold text-lg">
@@ -82,7 +76,8 @@ function FavoutritDashboard() {
                   categoryGroup.url === location.search
                     ? "bg-tint-100 text-tint-600 duration-300"
                     : ""
-                }`}>
+                }`}
+              >
                 <span>{categoryGroup.text}</span>
                 <FaChevronLeft />
               </button>
@@ -93,10 +88,10 @@ function FavoutritDashboard() {
           <SearchInput />
         </div>
       </div>
-      {user.favoriteProduct == null ? (
+      {user.favoriteProduct.length == 0 ? (
         <EmptySection text="شما در حال حاضر هیچ غذای مورد علاقه ای ثبت نکرده اید !" />
       ) : (
-        <FillFavourit favourits={user.favoriteProduct}/>
+        <FillFavourit favourits={user.favoriteProduct} />
       )}
     </div>
   );

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { toPersianNumbers } from "../../utils/FormatNumber";
 import NavbarOption from "../../ui/NavbarOption";
-
 import {
   likeSolidIcon,
   locationSolidIcon,
@@ -12,37 +11,38 @@ import { TbLogout } from "react-icons/tb";
 import useUser from "../authentication/useUser";
 
 import Exist from "../../ui/Exist";
-import { LoadingBars } from "../../ui/Loading";
 
 function SidebarLayout() {
   const { isLoading, user } = useUser();
   const [open, setOpen] = useState(false);
-  if (isLoading) {
-    return (
-      <div className="h-screen md:h-96 md:border md:border-secondery-500 rounded-lg p-4">
-        <LoadingBars width="100" />
-      </div>
-    );
-  }
 
   return (
     <div className="h-screen md:h-96 md:border md:border-secondery-500 rounded-lg p-4">
       <div className="space-y-3">
-        <div className="flex gap-2 items-center">
-          <div className="w-14 h-14 rounded-full">
-            <img
-              src={user.avatarUrl ? user.avatarUrl : "/styles/avatar.png"}
-              alt="عکس کاربر"
-            />
+        {isLoading ? (
+          <div className="flex gap-4 items-center animate-pulse">
+            <div className="w-14 h-12 rounded-full bg-secondery-400"></div>
+            <div className="flex flex-col gap-2 w-full">
+              <span className="w-full h-3 bg-secondery-400 rounded-lg"></span>
+              <span className="w-full h-3 bg-secondery-400 rounded-lg"></span>
+            </div>
           </div>
-          <div className="flex flex-col gap-1">
-            <span> {user.name ? user.name : "کاربر ترخینه"}</span>
-            <span className="text-sm text-secondery-500">
-              {toPersianNumbers(user.phoneNumber)}
-            </span>
+        ) : (
+          <div className="flex gap-2 items-center">
+            <div className="w-14 h-14 rounded-full">
+              <img
+                src={user.avatarUrl ? user.avatarUrl : "/styles/avatar.png"}
+                alt="عکس کاربر"
+              />
+            </div>
+            <div className="flex flex-col gap-1">
+              <span> {user.name ? user.name : "کاربر ترخینه"}</span>
+              <span className="text-sm text-secondery-500">
+                {toPersianNumbers(user.phoneNumber)}
+              </span>
+            </div>
           </div>
-        </div>
-
+        )}
         <span className="w-full block h-0.5 bg-secondery-500 rounded-full "></span>
         <div className="flex flex-col">
           <NavbarOption path="/dashboard/profile">

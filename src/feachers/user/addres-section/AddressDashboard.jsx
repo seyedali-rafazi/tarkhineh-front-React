@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import EmptyAddress from "./EmptyAddress";
 import FullAddress from "./FullAddress";
 import useUser from "../../authentication/useUser";
-import Loading from "../../../ui/Loading";
+import PanelSceleton from "../../../ui/PanelSceleton";
 
 function AddressDashboard() {
   const { isLoading, user } = useUser();
@@ -14,28 +14,24 @@ function AddressDashboard() {
   const [open, setOpen] = useState(false);
   const { isUpdating, updateUser } = useUpdateUser();
 
-  if (isLoading) {
-    return (
-      <div>
-        <Loading />
-      </div>
-    );
-  }
 
   const onCkickSubmitAddress = (data) => {
     updateUser(data, {
       onSuccess: () => {
         toast.success("آدرس شما با موفقیت بروزرسانی شد");
-        setOpen(false)
+        setOpen(false);
       },
     });
   };
 
-  return (
+  return isLoading ? (
+    <PanelSceleton />
+  ) : (
     <div className="flex flex-col items-center gap-5 border border-secondery-500 rounded-lg p-5">
       <button
         onClick={() => navigate(-1)}
-        className="md:hidden flex justify-start w-full">
+        className="lg:hidden flex justify-start w-full"
+      >
         <FaArrowRight />
       </button>
       <p className="flex justify-start w-full font-bold text-lg">آدرس ها </p>

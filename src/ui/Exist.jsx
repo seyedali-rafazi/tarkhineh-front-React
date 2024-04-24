@@ -13,18 +13,18 @@ function Exist({ open, onClose }) {
         <div className="flex gap-3">
           <button
             onClick={onClose}
-            className="bg-primary font-bold px-16 py-2 text-secondery-50 rounded-lg"
+            className="bg-primary font-bold  min-w-24 px-3 sm:px-16 py-2 text-secondery-50 rounded-lg"
           >
             لغو
           </button>
           {isPending ? (
-            <button className="bg-red-100 font-bold px-16 py-2 text-secondery-50 rounded-lg">
-              <LoadingBars />
+            <button className="bg-red-100 font-bold min-w-24 px-3 sm:px-16 py-2 text-secondery-50 rounded-lg">
+              <LoadingBars width="24" />
             </button>
           ) : (
             <button
               onClick={logout}
-              className="bg-red-500 font-bold px-16 py-2 text-secondery-50 rounded-lg"
+              className="bg-red-500 font-bold px-3 min-w-24 sm:px-16 py-2 text-secondery-50 rounded-lg"
             >
               خروج
             </button>

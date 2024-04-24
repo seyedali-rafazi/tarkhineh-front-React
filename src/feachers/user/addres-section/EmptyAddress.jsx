@@ -14,9 +14,9 @@ function EmptyAddress({ setOpen, open, onCkickSubmitAddress }) {
   return (
     <div className="w-full h-full">
       <div className="flex justify-center opacity-45"></div>
-      <div className="bg-cover bg-hero-pattern bg-center h-full w-2/4 mx-auto">
-        <div className="flex flex-col justify-center items-center gap-8 h-full">
-          <p className="font-semibold text-secondery-600 text-center">
+      <div className="bg-cover bg-hero-pattern bg-center h-full w-full mx-auto">
+        <div className="flex flex-col justify-center items-center gap-8 h-full w-full">
+          <p className="font-semibold text-secondery-600 text-center w-full">
             شما در حال حاضر هیچ آدرسی ثبت نکرده اید !
           </p>
           <button

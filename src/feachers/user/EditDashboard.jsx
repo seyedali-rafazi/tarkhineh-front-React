@@ -6,9 +6,12 @@ import useUpdateUser from "../authentication/useUpdateUser";
 import { FaArrowRight } from "react-icons/fa6";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import useUser from "../authentication/useUser";
+import PanelSceleton from "../../ui/PanelSceleton";
+import {LoadingBars} from "../../ui/Loading";
 
-
-function EditDashboard({user}) {
+function EditDashboard() {
+  const { isLoading: loadingUser, user } = useUser();
   const {
     register,
     handleSubmit,
@@ -19,7 +22,6 @@ function EditDashboard({user}) {
   const [username, setUsername] = useState(user.name);
   const [email, setEmail] = useState(user.email);
 
-
   const onCkickSubmit = (data) => {
     updateUser(data, {
       onSuccess: () => {
@@ -28,7 +30,9 @@ function EditDashboard({user}) {
     });
   };
 
-  return (
+  return loadingUser ? (
+    <PanelSceleton />
+  ) : (
     <div className="flex flex-col items-center gap-5 border border-secondery-500 rounded-lg p-5">
       <button
         onClick={() => navigate(-1)}
@@ -74,13 +78,24 @@ function EditDashboard({user}) {
             }}
           />
         </div>
-        <button
-          type="submit"
-          className="col-start-1 mx-auto border-2 border-tint-600  font-bold text-primary bg-secondery-50 py-2 rounded-md flex  justify-center items-center gap-2 hover:bg-primary hover:text-secondery-50 duration-300 px-5"
-        >
-          <PiPencilSimpleLine className="w-6 h-6" />
-          <span className="text-xs">ویرایش اطلاعات شخصی</span>
-        </button>
+        {isUpdating ? (
+          <button
+            type="submit"
+            className="col-start-1 mx-auto border-2 border-tint-600  bg-secondery-50 rounded-md flex  justify-center items-center gap-2 px-5 py-2 min-w-48"
+          >
+            <span className="text-xs">
+              <LoadingBars width="24" />
+            </span>
+          </button>
+        ) : (
+          <button
+            type="submit"
+            className="col-start-1 mx-auto border-2 border-tint-600  font-bold text-primary bg-secondery-50 py-2 rounded-md flex  justify-center items-center gap-2 hover:bg-primary hover:text-secondery-50 duration-300 px-5"
+          >
+            <PiPencilSimpleLine className="w-6 h-6" />
+            <span className="text-xs">ویرایش اطلاعات شخصی</span>
+          </button>
+        )}
       </form>
     </div>
   );
