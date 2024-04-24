@@ -23,6 +23,7 @@ import About from "./pages/About";
 import Call from "./pages/Call";
 import SearchResult from "./components/home/SearchResult";
 import Navbar from "./ui/Navbar";
+import Fooddetails from "./components/menu/Fooddetails";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ function App() {
               <Route path="dessert" element={<Dessert />} />
               <Route path="drink" element={<Drink />} />
             </Route>
+            <Route path="/food-details/:id" element={<Fooddetails />} />
             <Route path="/franchise" element={<Franchise />} />
             <Route path="/about" element={<About />} />
             <Route path="/call-us" element={<Call />} />

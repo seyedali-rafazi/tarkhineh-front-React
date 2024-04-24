@@ -12,7 +12,7 @@ import { Pagination } from "swiper/modules";
 
 function UserOrderStatue({ orders }) {
   return (
-    <div className="flex gap-2 whitespace-nowrap xl:max-w-[780px] lg:max-w-[620px] ">
+    <div className="grid grid-cols-1 gap-2 whitespace-nowrap xl:max-w-[780px] lg:max-w-[620px] ">
       <Swiper
         slidesPerView={1}
         spaceBetween={10}
@@ -38,10 +38,10 @@ function UserOrderStatue({ orders }) {
       >
         {orders.map((userOrder) => (
           <div className="w-10 p-52" key={userOrder._id}>
-            <SwiperSlide className="flex flex-col border-2 border-secondery-200 rounded-xl swiper-dasboard ">
+            <SwiperSlide className="flex flex-col border-2 border-secondery-200 rounded-xl ">
               <div className="relative w-full">
                 <img
-                  className="rounded-t-xl object-cover h-32 min-w-36 w-full"
+                  className="rounded-t-xl object-cover h-32 w-full"
                   src={userOrder.imageLink}
                   alt=""
                 />

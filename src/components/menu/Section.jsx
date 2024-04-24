@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { CiHeart } from "react-icons/ci";
-import { FaHeart } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import {
   toPersianNumbers,
@@ -9,13 +7,15 @@ import {
 import { truncateText } from "../../utils/truncateText";
 import LikeFood from "../../ui/LikeFood";
 import { OrderButton } from "../../ui/Button";
+import { Link } from "react-router-dom";
 
 function Section({ foods }) {
   return (
     <div>
       <div className="grid gap-3 grid-cols-1 lg:grid-cols-2 p-5">
         {foods.map((food) => (
-          <div
+          <Link
+            to={`/food-details/${food._id}`}
             key={food._id}
             className="border rounded-lg border-rose-100 flex min-h-36"
           >
@@ -86,7 +86,7 @@ function Section({ foods }) {
                 <OrderButton id={food._id} />
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

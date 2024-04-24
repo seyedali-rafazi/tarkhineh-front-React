@@ -3,7 +3,6 @@ import useFavourit from "../feachers/user/favourits/useFavourit";
 import useUser from "../feachers/authentication/useUser";
 import { FaHeart } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
-import toast from "react-hot-toast";
 
 function LikeFood({ id }) {
   const { userFavourit, isPending } = useFavourit();

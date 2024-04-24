@@ -23,7 +23,7 @@ export function OrderButton({ id }) {
 
   if (isPending) {
     return (
-      <button className="text-xs sm:text-sm md:text-md bg-primary text-secondary-50 rounded-lg px-5 py-2 w-48">
+      <button className="text-xs md:text-md bg-primary text-secondary-50 rounded-lg w-28 sm:text-sm md:text-md md:w-48">
         <p className="text-secondery-50">...</p>
       </button>
     );

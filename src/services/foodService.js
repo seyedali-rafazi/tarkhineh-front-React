@@ -28,6 +28,12 @@ export function getDrink(qs) {
     .then(({ data }) => data.data);
 }
 
+export function getFoodById(id) {
+  return http
+    .get(`/product/${id}`)
+    .then(({ data }) => data.data);
+}
+
 export function getUserFavourit(id) {
   return http
     .post(`/user/set-favorite-product/${id}`)
