@@ -1,48 +1,55 @@
 import React from "react";
 import NavbarOption from "./NavbarOption";
-import {
-  callCalling,
-  home,
-  homeHashtag,
-  profile2user,
-  truck,
-} from "../icons/Sidebar-icon";
+import { TbHome } from "react-icons/tb";
+import { TbAlbum } from "react-icons/tb";
+import { TbTruck } from "react-icons/tb";
+import { TbUsers } from "react-icons/tb";
+import { TbPhoneCall } from "react-icons/tb";
 
-export default function NavbarOptions() {
+const pageLinks = [
+  {
+    icon: <TbHome className="w-6 h-6" />,
+    text: "صفحه اصلی ",
+    path: "/",
+    id: 1,
+  },
+  {
+    icon: <TbAlbum className="w-6 h-6"/>,
+    text: "منو",
+    path: "/branch-menu",
+    id: 2,
+  },
+  {
+    icon: <TbTruck className="w-6 h-6"/>,
+    text: "اعطای نمایندگی",
+    path: "/franchise",
+    id: 3,
+  },
+  {
+    icon: <TbUsers className="w-6 h-6"/>,
+    text: "درباره ما",
+    path: "/about",
+    id: 4,
+  },
+  {
+    icon: <TbPhoneCall className="w-6 h-6"/>,
+    text: "تماس با ما",
+    path: "/call-us",
+    id: 5,
+  },
+];
+
+export default function NavbarOptions({onClose}) {
   return (
     <>
-      <NavbarOption path="/">
-        <div className="flex justify-start items-center gap-2">
-          <span className="lg:hidden">{home} </span>
-          <p>صفحه اصلی </p>
-        </div>
-      </NavbarOption>
-      <NavbarOption path="/branch-menu">
-        <div className="flex justify-start items-center gap-2">
-          <span className="lg:hidden">{homeHashtag} </span>
-          <div className="flex justify-between w-full">
-            <p>منو</p>
+      {pageLinks.map((pageLink) => (
+        <NavbarOption key={pageLink.id} path={pageLink.path} onClose={onClose}>
+          <div className="flex justify-start items-center gap-2">
+            <span className="lg:hidden">{pageLink.icon}</span>
+            <p>{pageLink.text}</p>
           </div>
-        </div>
-      </NavbarOption>
-      <NavbarOption path="/franchise">
-        <div className="flex justify-start items-center gap-2">
-          <span className="lg:hidden">{truck} </span>
-          <p>اعطای نمایندگی </p>
-        </div>
-      </NavbarOption>
-      <NavbarOption path="/about">
-        <div className="flex justify-start items-center gap-2">
-          <span className="lg:hidden">{profile2user} </span>
-          <p>درباره ما </p>
-        </div>
-      </NavbarOption>
-      <NavbarOption path="/call-us">
-        <div className="flex justify-start items-center gap-2">
-          <span className="lg:hidden">{callCalling} </span>
-          <p>تماس با ما </p>
-        </div>
-      </NavbarOption>
+        </NavbarOption>
+      ))}
     </>
   );
 }

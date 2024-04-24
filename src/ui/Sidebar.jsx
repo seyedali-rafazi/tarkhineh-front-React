@@ -23,15 +23,18 @@ function Sidebar({ open, onClose }) {
         open
           ? "backdrop-blur-sm absolute top-0 left-0 right-0 bottom-0 w-full h-screen bg-secondery-800 bg-opacity-30"
           : ""
-      } lg:hidden fixed modal`}>
+      } lg:hidden fixed modal`}
+    >
       <div
-        className={`fixed  top-0 right-0 max-w-xs h-screen bg-secondery-800 bg-opacity-30 modal lg:hidden transition-transform duration-300 ease-in-out transform ${
+        className={`fixed  top-0 right-0  h-screen bg-secondery-800 bg-opacity-30 modal lg:hidden transition-transform duration-300 ease-in-out transform ${
           open ? "" : "translate-x-full"
         }`}
-        ref={sidebarRef}>
+        ref={sidebarRef}
+      >
         <div
           ref={modalRef}
-          className="top-0 right-0 bg-secondery-50 max-w-xs w-full h-screen transition-transform duration-300 ease-in-out transform">
+          className="top-0 right-0 bg-secondery-50 max-w-[270px] sm:max-w-xs w-full h-screen transition-transform duration-300 ease-in-out transform"
+        >
           <div>
             <div className="w-full h-32 relative">
               <img
@@ -49,7 +52,7 @@ function Sidebar({ open, onClose }) {
               </button>
             </div>
             <div className="flex flex-col gap-3 p-4">
-              <NavbarOptions />
+              <NavbarOptions onClose={onClose} />
             </div>
           </div>
         </div>
