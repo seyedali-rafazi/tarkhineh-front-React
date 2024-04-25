@@ -14,18 +14,17 @@ function Section({ foods }) {
     <div>
       <div className="grid gap-3 grid-cols-1 lg:grid-cols-2 p-5">
         {foods.map((food) => (
-          <Link
-            to={`/food-details/${food._id}`}
+          <div
             key={food._id}
             className="border rounded-lg border-rose-100 flex min-h-36"
           >
-            <div className="rounded-r-lg">
+            <Link to={`/food-details/${food._id}`} className="rounded-r-lg">
               <img
                 className="min-w-28 h-full w-full rounded-r-lg"
                 src={food.imageLink}
                 alt={food.title}
               />
-            </div>
+            </Link>
             <div className="flex flex-col justify-between gap-2 p-2 w-full">
               <div className="flex gap-2 justify-between items-center sm:flex-col">
                 <div className="flex sm:justify-between sm:items-center w-full h-full">
@@ -86,7 +85,7 @@ function Section({ foods }) {
                 <OrderButton id={food._id} />
               </div>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
     </div>
