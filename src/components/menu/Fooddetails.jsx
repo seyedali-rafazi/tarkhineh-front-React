@@ -15,7 +15,6 @@ function Fooddetails() {
   if (isLoading) {
     return <Loading />;
   }
-  console.log(product);
 
   return (
     <div>

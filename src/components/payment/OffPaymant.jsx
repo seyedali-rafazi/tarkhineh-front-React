@@ -14,7 +14,6 @@ function OffPaymant() {
   const { addCoupon, isPending } = useAddOff();
 
   const onCkickSubmit = (data) => {
-    console.log(data);
     addCoupon(data);
   };
 
