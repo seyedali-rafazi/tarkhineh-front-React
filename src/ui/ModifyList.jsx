@@ -20,7 +20,7 @@ function ModifyList({ products }) {
 
   return (
     <div className="w-full flex flex-col gap-3 border border-secondery-400 rounded-lg p-6 max-h-[60vh] overflow-auto">
-      {products.map((product) => (
+      {products?.map((product) => (
         <div
           key={product._id}
           className="border border-secondery-400 rounded-lg">

@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 function Footer() {
   const {
     register,
-    handleSubmit,
     formState: { errors },
   } = useForm();
 
@@ -15,7 +14,7 @@ function Footer() {
   };
 
   return (
-    <footer className="grid grid-cols-1 lg:grid-cols-2 bg-cover bg-home-footer bg-center w-full h-72 mt-14 justify-center content-center gap-5 ">
+    <footer className="grid grid-cols-1 lg:grid-cols-2 bg-cover bg-home-footer bg-center w-full  mt-14 justify-center content-center gap-5 bottom-0 py-16 ">
       <div className="flex justify-evenly gap-14">
         <div className="flex flex-col gap-4">
           <h2 className="font-bold text-lg text-secondery-100">دسترسی آسان</h2>

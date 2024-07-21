@@ -5,7 +5,7 @@ import Footer from "../../ui/Footer";
 
 function MenuLayout({ children }) {
   return (
-    <div className="container xl:max-w-7xl min-h-screen max-w-full">
+    <div className="container xl:max-w-[1640px] min-h-screen max-w-full">
       <GeneralSwiper />
       {children}
       <Outlet />

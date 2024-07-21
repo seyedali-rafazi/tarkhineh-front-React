@@ -4,8 +4,10 @@ import Footer from "../ui/Footer";
 
 function Cart() {
   return (
-    <div className="container xl:max-w-7xl min-h-screen max-w-full">
-      <OrderStep />
+    <div className="flex flex-col min-h-screen xl:max-w-[1640px]">
+      <main className="flex-grow">
+        <OrderStep />
+      </main>
       <Footer />
     </div>
   );

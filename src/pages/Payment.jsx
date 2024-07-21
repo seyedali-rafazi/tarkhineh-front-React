@@ -4,7 +4,7 @@ import PaymentStep from "../components/payment/PaymentStep";
 
 function Payment() {
   return (
-    <div className="container xl:max-w-7xl min-h-screen">
+    <div className="container xl:max-w-[1640px] min-h-screen">
       <PaymentStep />
       <Footer />
     </div>

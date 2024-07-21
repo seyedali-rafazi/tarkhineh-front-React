@@ -9,7 +9,7 @@ import OrderSection from "./OrderSection";
 
 function OrderStep() {
   const navigate = useNavigate();
-  const { user, cart, isLoading } = useUser();
+  const { cart } = useUser();
 
   return (
     <div className="flex flex-col justify-center items-center gap-4 my-5 w-full">
@@ -28,13 +28,13 @@ function OrderStep() {
         </div>
       </div>
 
-      <div className=" w-full flex justify-center px-5 md:px-12">
-        {cart.productDetail.length == 0 ? (
-          <div className="border border-red-100 rounded-lg w-full">
+      <div className=" w-full flex justify-center px-5 md:px-12 min-h-80">
+        {cart?.productDetail?.length == 0 ? (
+          <div className="border border-red-100 rounded-lg w-full ">
             <EmptySection text="شما هنوز محصولی انتخاب نکردید!" />
           </div>
         ) : (
-          <OrderSection products={cart.productDetail} />
+          <OrderSection products={cart?.productDetail} />
         )}
       </div>
     </div>

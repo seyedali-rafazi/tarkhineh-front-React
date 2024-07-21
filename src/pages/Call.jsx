@@ -4,7 +4,7 @@ import CalllLayout from "../components/call/CalllLayout";
 
 function Call() {
   return (
-    <div className="container xl:max-w-7xl min-h-screen max-w-full">
+    <div className="container xl:max-w-[1640px] min-h-screen max-w-full">
       <CalllLayout />
       <Footer />
     </div>
