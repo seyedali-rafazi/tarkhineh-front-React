@@ -1,5 +1,5 @@
 # Food Ordering Frontend App
-### See [Live](https://tarkhineh-react.liara.run/)
+### See [Live](https://saghfinoo.vercel.app/)
 
 
 This is the frontend application for a food ordering platform, built using React.js. The app provides a user-friendly interface for customers to browse restaurants, view menus, place orders, and track their order status.
@@ -31,9 +31,9 @@ This is the frontend application for a food ordering platform, built using React
 
 1. Clone the repository
 2. Navigate to the project directory
-3. Install dependencies: `npm install`
-4. Create a `.env` file in the root directory and add the necessary environment variables
-5. Start the development server: `npm start`
+3. Install dependencies: npm install
+4. Create a .env file in the root directory and add the necessary environment variables
+5. Start the development server: npm start
 
 
 ## Contact
