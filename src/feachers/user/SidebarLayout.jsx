@@ -31,6 +31,10 @@ function SidebarLayout() {
           <div className="flex gap-2 items-center">
             <div className="w-14 h-14 rounded-full">
               <img
+                role="presentation"
+                onError={(e) => {
+                  e.currentTarget.src = "/styles/default.webp";
+                }}
                 src={user.avatarUrl ? user.avatarUrl : "/styles/avatar.png"}
                 alt="عکس کاربر"
               />

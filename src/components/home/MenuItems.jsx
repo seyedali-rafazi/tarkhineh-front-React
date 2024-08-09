@@ -63,6 +63,10 @@ function MenuItems() {
             className=" w-36 h-32 sm:w-48 sm:h-40  md:w-56 md:h-52 bg-secondery-50 flex flex-col-reverse items-center rounded-b-lg relative "
           >
             <img
+              role="presentation"
+              onError={(e) => {
+                e.currentTarget.src = "/styles/default.webp";
+              }}
               className="w-24 sm:w-32 lg:w-48 absolute bottom-9 z-50"
               src={menuFood.foodItemPhoto}
               alt=""

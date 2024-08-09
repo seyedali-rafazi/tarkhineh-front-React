@@ -33,6 +33,10 @@ function Fooddetails() {
         <div className="flex flex-col min-h-96 sm:flex-row justify-center items-center p-5 gap-5">
           <div className="w-48 sm:w-96 rounded-lg">
             <img
+              role="presentation"
+              onError={(e) => {
+                e.currentTarget.src = "/styles/default.webp";
+              }}
               className="w-full h-full rounded-lg object-cover object-center"
               src={product.imageLink}
               alt=""

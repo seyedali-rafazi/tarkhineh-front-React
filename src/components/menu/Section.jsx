@@ -20,6 +20,10 @@ function Section({ foods }) {
           >
             <Link to={`/food-details/${food._id}`} className="rounded-r-lg">
               <img
+                role="presentation"
+                onError={(e) => {
+                  e.currentTarget.src = "/styles/default.webp";
+                }}
                 className="min-w-28 h-full w-full rounded-r-lg"
                 src={food.imageLink}
                 alt={food.title}

@@ -46,6 +46,10 @@ function CallFrenchies() {
         >
           <div className="w-full h-32 md:h-72 rounded-lg">
             <img
+              role="presentation"
+              onError={(e) => {
+                e.currentTarget.src = "/styles/default.webp";
+              }}
               className="object-center object-cover w-full h-full rounded-t-lg md:rounded-r-lg md:rounded-tl-none"
               src={branche.image}
               alt=""

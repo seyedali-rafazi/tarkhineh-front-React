@@ -14,6 +14,10 @@ function FillFavourit({ favourits }) {
         >
           <div className="max-h-36">
             <img
+              role="presentation"
+              onError={(e) => {
+                e.currentTarget.src = "/styles/default.webp";
+              }}
               className="w-full h-full object-cover object-center rounded-t-lg"
               src={favourit.imageLink}
               alt=""

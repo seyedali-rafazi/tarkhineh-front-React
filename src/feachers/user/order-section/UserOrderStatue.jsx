@@ -41,6 +41,10 @@ function UserOrderStatue({ orders }) {
             <SwiperSlide className="flex flex-col border-2 border-secondery-200 rounded-xl ">
               <div className="relative w-full">
                 <img
+                  role="presentation"
+                  onError={(e) => {
+                    e.currentTarget.src = "/styles/default.webp";
+                  }}
                   className="rounded-t-xl object-cover h-32 w-full"
                   src={userOrder.imageLink}
                   alt=""

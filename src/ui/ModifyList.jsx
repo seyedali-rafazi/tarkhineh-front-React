@@ -23,10 +23,19 @@ function ModifyList({ products }) {
       {products?.map((product) => (
         <div
           key={product._id}
-          className="border border-secondery-400 rounded-lg">
+          className="border border-secondery-400 rounded-lg"
+        >
           <div className="flex gap-2 w-full">
             <div className="hidden md:block">
-              <img className="h-full" src={product.imageLink} alt="" />
+              <img
+                role="presentation"
+                onError={(e) => {
+                  e.currentTarget.src = "/styles/default.webp";
+                }}
+                className="h-full"
+                src={product.imageLink}
+                alt=""
+              />
             </div>
             <div className="w-full flex md:flex-col justify-between gap-2 p-3">
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full">
@@ -39,7 +48,8 @@ function ModifyList({ products }) {
                 </span>
                 <button
                   className="hidden md:block"
-                  onClick={() => handelDelete(product._id)}>
+                  onClick={() => handelDelete(product._id)}
+                >
                   <GoTrash className="w-6 h-6" />
                 </button>
               </div>

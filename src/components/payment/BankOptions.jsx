@@ -41,6 +41,10 @@ function BankOptions() {
                     ? "grayscale-0 border-primary shadow-sm"
                     : "grayscale"
                 }`}
+                role="presentation"
+                onError={(e) => {
+                  e.currentTarget.src = "/styles/default.webp";
+                }}
                 src={bankImage.image}
                 alt=""
               />
