@@ -16,7 +16,7 @@ export default function useAddOff() {
         });
       },
       onError: (err) => {
-        toast.error(err?.response?.data?.message);
+        toast.error(err?.message || "خطایی رخ داد");
       },
     });
     return { isPending, addCoupon };

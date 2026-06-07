@@ -34,13 +34,14 @@ const intoductionItems = [
 function MenuInroduction() {
   const navigate = useNavigate();
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 p-6 bg-cover bg-center bg-home-intruduction min-h-96">
-      <div className="flex flex-col gap-6">
-        <div className="flex flex-col gap-6  justify-start text-secondery-300">
-          <h2 className="font-semibold text-xl text-secondery-300 ">
+    <div className="relative z-0 grid grid-cols-1 md:grid-cols-2 gap-5 p-6 bg-cover bg-center bg-home-intruduction min-h-80 rounded-xl mx-4 overflow-hidden">
+      <div className="absolute inset-0 bg-black/40" />
+      <div className="relative z-10 flex flex-col gap-6 animate-fade-in-up">
+        <div className="flex flex-col gap-4 justify-start text-secondery-50">
+          <h2 className="font-semibold text-lg">
             رستوران‌های زنجیره‌ای ترخینه
           </h2>
-          <p className="text-justify text-sm lg:text-lg">
+          <p className="text-justify text-sm leading-relaxed">
             مهمان‌نوازی یکی از مهم‌ترین مشخصه‌های ایرانیان است و باعث افتخار
             ماست که بیش از 20 سال است خدمت‌گزار مردم شریف ایران هستیم. ما در
             رستوران‌های زنجیره‌ای ترخینه همواره تلاش کردیم که در محیطی اصیل بر
@@ -48,10 +49,11 @@ function MenuInroduction() {
             شان شما عزیزان ارائه دهیم.
           </p>
         </div>
-        <div className="flex justify-end text-secondery-300">
+        <div className="flex justify-end">
           <button
             onClick={() => navigate("/about")}
-            className="border border-secondery-300 rounded-md px-4 py-2 flex gap-2 items-center duration-300 transition-all">
+            className="border border-secondery-50 text-secondery-50 rounded-md px-4 py-2 flex gap-2 items-center hover:bg-secondery-50 hover:text-secondery-800 transition-all duration-300"
+          >
             <span>اطلاعات بیشتر</span>
             <span>
               <FaChevronLeft className="w-4 h-4" />
@@ -59,11 +61,13 @@ function MenuInroduction() {
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-2 text-secondery-300">
-        {intoductionItems.map((intoductionItem) => (
+      <div className="relative z-10 grid grid-cols-2 gap-3 text-secondery-50">
+        {intoductionItems.map((intoductionItem, index) => (
           <div
             key={intoductionItem.id}
-            className="flex flex-col justify-center items-center gap-2">
+            style={{ animationDelay: `${index * 80}ms` }}
+            className="flex flex-col justify-center items-center gap-2 p-3 rounded-lg bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors duration-300 animate-fade-in-up opacity-0"
+          >
             <div>{intoductionItem.icon}</div>
             <span className="text-sm whitespace-nowrap">{intoductionItem.text}</span>
           </div>

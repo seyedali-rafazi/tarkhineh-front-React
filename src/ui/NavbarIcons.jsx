@@ -3,6 +3,9 @@ import Modal from "./Modal";
 import { useForm } from "react-hook-form";
 import TextField from "./TextField";
 import useAuth from "../feachers/authentication/useAuth";
+import useUser from "../feachers/authentication/useUser";
+import { getCartItemCount } from "../utils/cartCount";
+import { toPersianNumbers } from "../utils/FormatNumber";
 import { useLocation, useNavigate } from "react-router-dom";
 import { userPnaelUrl, cartUrl } from "../utils/UrlAddress";
 import { baseLogo } from "../icons/Base-icons";
@@ -22,6 +25,8 @@ export default function NavbarIcons({ user }) {
     formState: { errors },
   } = useForm();
   const { isCreating, createUser } = useAuth();
+  const { cart } = useUser();
+  const cartCount = getCartItemCount(cart);
   const navigate = useNavigate();
   const { searchParams, setSearchParams, searchQuery, setSearchQuery } =
     useSearchMenu();
@@ -84,9 +89,9 @@ export default function NavbarIcons({ user }) {
       </button>
 
       <button
-        className={
+        className={`relative ${
           cartUrl.includes(location.pathname) ? ActiveUrlButton : DisableButon
-        }
+        }`}
         onClick={handelOrderPanel}
       >
         <svg
@@ -103,7 +108,15 @@ export default function NavbarIcons({ user }) {
             fill="currentColor"
             d="M21 8.75H9c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h12c.41 0 .75.34.75.75s-.34.75-.75.75Z"
           ></path>
-        </svg>{" "}
+        </svg>
+        {cartCount > 0 && (
+          <span
+            key={cartCount}
+            className="absolute -top-1.5 -left-1.5 min-w-[18px] h-[18px] flex items-center justify-center rounded-full bg-primary text-white text-[10px] font-bold px-1 leading-none animate-cart-pop shadow-sm"
+          >
+            {toPersianNumbers(cartCount > 99 ? "99+" : cartCount)}
+          </span>
+        )}
       </button>
 
       <button

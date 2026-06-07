@@ -1,55 +1,38 @@
-import http from "./httpService";
+import { filterProducts, getProductById } from "../data/products";
 
 export function getAllFood(qs) {
-  return http.get(`/product/list${qs}`).then(({ data }) => data.data);
+  return Promise.resolve({ products: filterProducts(qs) });
 }
 
 export function getMainFood(qs) {
-  return http
-    .get(`/product/list${qs ? qs : "?category=mainFood"}`)
-    .then(({ data }) => data.data);
+  const query = qs || "?category=mainFood";
+  return Promise.resolve({ products: filterProducts(query) });
 }
 
 export function getApptizer(qs) {
-  return http
-    .get(`/product/list${qs ? qs : "?category=appetizer"}`)
-    .then(({ data }) => data.data);
+  const query = qs || "?category=appetizer";
+  return Promise.resolve({ products: filterProducts(query) });
 }
 
 export function getDessert(qs) {
-  return http
-    .get(`/product/list${qs ? qs : "?category=dessert"}`)
-    .then(({ data }) => data.data);
+  const query = qs || "?category=dessert";
+  return Promise.resolve({ products: filterProducts(query) });
 }
 
 export function getDrink(qs) {
-  return http
-    .get(`/product/list${qs ? qs : "?category=drinks"}`)
-    .then(({ data }) => data.data);
+  const query = qs || "?category=drinks";
+  return Promise.resolve({ products: filterProducts(query) });
 }
 
 export function getFoodById(id) {
-  return http
-    .get(`/product/${id}`)
-    .then(({ data }) => data.data);
+  const product = getProductById(id);
+  if (!product) return Promise.reject({ message: "محصول یافت نشد" });
+  return Promise.resolve({ product });
 }
 
-export function getUserFavourit(id) {
-  return http
-    .post(`/user/set-favorite-product/${id}`)
-    .then(({ data }) => data.data);
-}
-
-export function addToCard(productId) {
-  return http.post(`/cart/add`, { productId }).then(({ data }) => data.data);
-}
-
-export function removeOneCard(productId) {
-  return http.post(`/cart/remove`, { productId }).then(({ data }) => data.data);
-}
-
-export function deleteFromCart(productId) {
-  return http
-    .post(`/cart/deleteProduct`, productId)
-    .then(({ data }) => data.data);
-}
+export {
+  toggleFavorite as getUserFavourit,
+  addToCart as addToCard,
+  removeFromCart as removeOneCard,
+  deleteProductFromCart as deleteFromCart,
+} from "../store/localStore";

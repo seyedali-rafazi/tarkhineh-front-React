@@ -1,48 +1,55 @@
-import React from 'react'
-import SwiperLayout from './Swiper'
-import { SwiperSlide } from 'swiper/react'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import SwiperLayout from "./Swiper";
+import { SwiperSlide } from "swiper/react";
+
+const slides = [
+  {
+    bg: "bg-home-slide-one",
+    title: "تجربه غذای سالم و گیاهی به سبک ترخینه",
+    maxW: "max-w-md",
+  },
+  {
+    bg: "bg-home-slide-two",
+    title: "طعم بینظیر طبیعت",
+    maxW: "max-w-xs",
+  },
+  {
+    bg: "bg-home-slide-three",
+    title: "لذت غذای سالم و گیاهی را با ترخینه تجربه کنید",
+    maxW: "max-w-md",
+  },
+];
 
 function GeneralSwiper() {
+  const navigate = useNavigate();
+
   return (
     <SwiperLayout>
-    <SwiperSlide>
-      <div className="bg-cover bg-home-slide-one bg-center w-full h-80 flex justify-center items-center">
-        <div className="flex flex-col gap-6 w-full justify-center items-center my-auto">
-          <h1 className="font-bold text-sm md:text-2xl text-secondery-50">
-            تجربه غذای سالم و گیاهی به سبک ترخینه
-          </h1>
-          <button className="bg-primary w-fit text-secondery-50 rounded-lg px-5 py-2">
-            سفارش آنلاین غذا
-          </button>
-        </div>
-      </div>
-    </SwiperSlide>
-    <SwiperSlide>
-      <div className="bg-cover bg-home-slide-two bg-center h-80 w-full flex justify-center items-center">
-        <div className="flex flex-col gap-6 w-full justify-center items-center my-auto">
-          <h1 className="font-bold text-sm md:text-2xl text-secondery-50">
-            طعم بینظیر طبیعت
-          </h1>
-          <button className="bg-primary w-fit text-secondery-50 rounded-lg px-5 py-2">
-            سفارش آنلاین غذا
-          </button>
-        </div>
-      </div>
-    </SwiperSlide>
-    <SwiperSlide>
-      <div className="bg-cover  bg-home-slide-three bg-center h-80 w-full flex justify-center items-center">
-        <div className="flex flex-col gap-6 w-full justify-center items-center my-auto">
-          <h1 className="font-bold text-sm md:text-2xl text-secondery-50">
-            لذت غذای سالم و گیاهی را با ترخینه تجربه کنید
-          </h1>
-          <button className="bg-primary w-fit text-secondery-50 rounded-lg px-5 py-2">
-            سفارش آنلاین غذا
-          </button>
-        </div>
-      </div>
-    </SwiperSlide>
-  </SwiperLayout>
-  )
+      {slides.map((slide) => (
+        <SwiperSlide key={slide.title}>
+          <div
+            className={`relative bg-cover ${slide.bg} bg-center w-full h-64 flex justify-center items-center overflow-hidden`}
+          >
+            <div className="absolute inset-0 bg-black/30" />
+            <div className="relative z-10 flex flex-col gap-4 w-full justify-center items-center px-4 animate-fade-in-up">
+              <h1
+                className={`font-bold text-base md:text-lg text-secondery-50 text-center ${slide.maxW}`}
+              >
+                {slide.title}
+              </h1>
+              <button
+                onClick={() => navigate("/branch-menu/mainfood")}
+                className="bg-primary text-sm w-fit text-secondery-50 rounded-lg px-5 py-2 hover:bg-shade-100 hover:scale-105 active:scale-95 transition-all duration-300 shadow-md"
+              >
+                سفارش آنلاین غذا
+              </button>
+            </div>
+          </div>
+        </SwiperSlide>
+      ))}
+    </SwiperLayout>
+  );
 }
 
-export default GeneralSwiper
+export default GeneralSwiper;

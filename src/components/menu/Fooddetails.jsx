@@ -26,25 +26,25 @@ function Fooddetails() {
               className="w-6 h-6 text-secondery-50"
             />
           </button>
-          <h2 className="w-full text-center font-bold text-xl text-secondery-50">
+          <h2 className="w-full text-center font-bold text-base text-secondery-50">
             جزيیات محصول
           </h2>
         </div>
         <div className="flex flex-col min-h-96 sm:flex-row justify-center items-center p-5 gap-5">
-          <div className="w-48 sm:w-96 rounded-lg">
+          <div className="w-48 h-48 sm:w-72 sm:h-72 flex-shrink-0 rounded-lg overflow-hidden shadow-md">
             <img
               role="presentation"
               onError={(e) => {
                 e.currentTarget.src = "/styles/default.webp";
               }}
-              className="w-full h-full rounded-lg object-cover object-center"
+              className="w-full h-full object-cover object-center"
               src={product.imageLink}
-              alt=""
+              alt={product.title}
             />
           </div>
           <div className="flex flex-col w-full gap-3">
             <div className="flex w-full justify-between items-center">
-              <h2 className="font-bold text-xl text-secondery-900">
+              <h2 className="font-bold text-base text-secondery-800">
                 {product.title}
               </h2>
               <LikeFood id={product._id} />

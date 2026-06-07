@@ -7,7 +7,7 @@ import GeneralSwiper from "../../ui/GeneralSwiper";
 
 function HomeLayout() {
   return (
-    <div className="w-full min-h-screen overflow-hidden flex flex-col gap-8 relative">
+    <div className="w-full min-h-screen overflow-hidden flex flex-col gap-6 relative">
       <GeneralSwiper />
       <MenuItems />
       <MenuInroduction />

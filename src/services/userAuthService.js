@@ -1,17 +1,22 @@
-import http from "./httpService";
+import {
+  loginUser,
+  getProfile,
+  updateUserProfile,
+  logoutUser,
+} from "../store/localStore";
 
 export function getOtp(data) {
-  return http.post("/user/get-otp", data).then(({ data }) => data.data);
+  return loginUser(data);
 }
 
 export function getUser() {
-  return http.get("/user/profile").then(({ data }) => data.data);
+  return getProfile();
 }
 
 export function setupdateUser(data) {
-  return http.patch("/user/update", data).then(({ data }) => data.data);
+  return updateUserProfile(data);
 }
 
 export function userLogout() {
-  return http.post("/user/logout").then(({ data }) => data.data);
+  return logoutUser();
 }

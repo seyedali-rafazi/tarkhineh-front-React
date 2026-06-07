@@ -18,10 +18,10 @@ function SuccessfulPayment() {
           alt=""
         />
         <div className="flex flex-col gap-3 items-center justify-center">
-          <p className="font-bold text-xl md:text-2xl lg:text-5xl text-primary">
+          <p className="font-bold text-lg md:text-xl text-primary">
             پرداخت شما با موفقیت انجام شد!
           </p>
-          <p className="text-primary text-sm lg:text-lg">
+          <p className="text-primary text-sm">
             کد رهگیری سفارش شما: ۶۲,۰۴۵
           </p>
         </div>

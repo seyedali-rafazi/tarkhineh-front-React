@@ -1,11 +1,11 @@
-import http from "./httpService";
+import { applyCoupon, createPayment } from "../store/localStore";
 
 export function addOff(couponCode) {
-  return http.post(`/cart/coupon`, couponCode).then(({ data }) => data.data);
+  return applyCoupon(couponCode);
 }
 
 export function userPayment() {
-  return http.post(`/payment/create`).then(({ data }) => data.data);
+  return createPayment();
 }
 
 export default { addOff, userPayment };

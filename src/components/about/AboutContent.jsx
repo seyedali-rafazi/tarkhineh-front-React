@@ -3,7 +3,7 @@ import React from "react";
 function AboutContent() {
   return (
     <div className="space-y-4 p-5">
-      <h2 className="font-bold text-xl md:text-3xl text-secondery-800">درباره ما</h2>
+      <h2 className="font-bold text-lg text-secondery-800">درباره ما</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 justify-center content-center gap-8 w-full">
         <div className="order-2 md:order-1">
           <p className="text-secondery-600 text-justify text-sm md:text-lg leading-8">

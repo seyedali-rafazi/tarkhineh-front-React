@@ -26,20 +26,20 @@ function ModifyList({ products }) {
           className="border border-secondery-400 rounded-lg"
         >
           <div className="flex gap-2 w-full">
-            <div className="hidden md:block">
+            <div className="hidden md:block flex-shrink-0 w-24 h-24 overflow-hidden rounded-r-lg">
               <img
                 role="presentation"
                 onError={(e) => {
                   e.currentTarget.src = "/styles/default.webp";
                 }}
-                className="h-full"
+                className="w-full h-full object-cover object-center"
                 src={product.imageLink}
                 alt=""
               />
             </div>
             <div className="w-full flex md:flex-col justify-between gap-2 p-3">
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full">
-                <p className="font-semibold text-lg">{product.title}</p>
+                <p className="font-semibold text-sm">{product.title}</p>
                 <span className="font-normal text-sm text-secondery-600 md:hidden">
                   {toPersianNumbers(
                     product.discount == 0 ? product.price : product.offPrice
@@ -86,7 +86,7 @@ function ModifyList({ products }) {
                     quantity={product.quantity.quantity}
                   />
                 </div>
-                <span className="hidden md:block md:font-semibold md:text-lg md:text-secondery-800">
+                <span className="hidden md:block md:font-semibold md:text-sm md:text-secondery-800">
                   {toPersianNumbers(
                     product.discount == 0 ? product.price : product.offPrice
                   )}

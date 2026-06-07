@@ -37,10 +37,13 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Estedad";
+  font-family: "Estedad", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
   min-height: 100vh;
   user-select: none;
-  background-color: rgb(var(--background-app-rgb));
+  background-color: #f9f9f9;
+  color: #353535;
 }
 
 * {
@@ -90,6 +93,72 @@ body {
   -ms-overflow-style: block;  /* IE and Edge */
   scrollbar-width: block;  /* Firefox */
 }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes cart-pop {
+    0% { transform: scale(0); }
+    60% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.3s ease-out forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.5s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+
+  .animate-cart-pop {
+    animation: cart-pop 0.35s ease-out;
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.4s ease-out forwards;
+  }
+
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
 }
 
 button {
@@ -177,7 +246,7 @@ table td {
 
 .swiper-slide {
   text-align: center;
-  font-size: 18px;
+  font-size: 14px;
   background: white;
 
   /* Center slide text vertically */

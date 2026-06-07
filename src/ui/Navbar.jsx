@@ -8,15 +8,11 @@ import useUser from "../feachers/authentication/useUser";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
-  const { isLoading, user } = useUser();
+  const { user } = useUser();
 
   return (
-    <div
-      className={`${
-        isLoading ? "shadow-md w-full blur-md" : "shadow-md w-full"
-      }`}
-    >
-      <div className={`flex justify-evenly py-5 items-center`}>
+    <div className="shadow-sm w-full bg-white sticky top-0 z-[100] border-b border-secondery-300">
+      <div className="container flex justify-between py-3 px-4 items-center max-w-7xl">
         <button onClick={() => setOpen(true)} className="lg:hidden">
           <RxHamburgerMenu className="w-6 h-6" />
         </button>
