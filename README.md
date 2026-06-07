@@ -1,41 +1,354 @@
-# Food Ordering Frontend App
-### See [Live](https://tarkhineh-shop.vercel.app/)
+# ترخینه — فرانت‌اند سفارش آنلاین غذا
 
+اپلیکیشن تک‌صفحه‌ای (SPA) به زبان فارسی و چیدمان **RTL** برای رستوران‌های زنجیره‌ای **ترخینه**. کاربران می‌توانند منو را ببینند، سبد خرید را مدیریت کنند، فرآیند خرید را تکمیل کنند و از پنل کاربری استفاده کنند — همه‌چیز در مرورگر و **بدون نیاز به بک‌اند**.
 
-This is the frontend application for a food ordering platform, built using React.js. The app provides a user-friendly interface for customers to browse restaurants, view menus, place orders, and track their order status.
+**نسخه زنده:** [tarkhineh-shop.vercel.app](https://tarkhineh-shop.vercel.app/)
 
-## Features
+---
 
-- User authentication (signup, login)
-- Restaurant browsing and filtering
-- Menu browsing and item selection
-- Cart management and order placement
-- Order tracking and status updates
-- Payment integration (coming soon)
+## فهرست مطالب
 
-## Technologies Used
+- [ویژگی‌ها](#ویژگی‌ها)
+- [تکنولوژی‌ها](#تکنولوژی‌ها)
+- [معماری](#معماری)
+- [راه‌اندازی](#راه‌اندازی)
+- [دستورات npm](#دستورات-npm)
+- [ساختار پروژه](#ساختار-پروژه)
+- [مسیرها (Routes)](#مسیرها-routes)
+- [داده و state](#داده-و-state)
+- [احراز هویت](#احراز-هویت)
+- [فرآیند خرید](#فرآیند-خرید)
+- [کدهای تخفیف](#کدهای-تخفیف)
+- [استایل و UI](#استایل-و-ui)
+- [TypeScript](#typescript)
+- [بیلد و استقرار](#بیلد-و-استقرار)
+- [پشتیبانی مرورگر](#پشتیبانی-مرورگر)
+- [تماس](#تماس)
 
-- React.js
-- Headless UI for building accessible UI components
-- React Query for data fetching and caching
-- Axios for HTTP requests
-- React Hook Form for form handling
-- React Hot Toast and React Toastify for notifications
-- React Icons for icons
-- React Multi Date Picker for date selection
-- React Router for client-side routing
-- Swiper for carousel/slider functionality
-- Classnames for conditional CSS classes
+---
 
-## Installation
+## ویژگی‌ها
 
-1. Clone the repository
-2. Navigate to the project directory
-3. Install dependencies: npm install
-4. Create a .env file in the root directory and add the necessary environment variables
-5. Start the development server: npm start
+### صفحات عمومی
+- **صفحه اصلی** — اسلایدر، دسته‌بندی منو، معرفی شعب، بخش معرفی رستوران
+- **منو** — مرور بر اساس دسته (غذای اصلی، پیش‌غذا، دسر، نوشیدنی) با فیلتر و جستجو
+- **جزئیات غذا** — اطلاعات محصول، قیمت، علاقه‌مندی‌ها، افزودن به سبد
+- **جستجو** — جستجوی متنی در میان آیتم‌های منو
+- **درباره ما / تماس / نمایندگی** — صفحات معرفی و درخواست نمایندگی
 
+### حساب کاربری (محلی)
+- ورود / ثبت‌نام با شماره تلفن و رمز عبور
+- **داشبورد** — پروفایل، سفارشات، علاقه‌مندی‌ها، آدرس
+- ویرایش پروفایل و آدرس تحویل
+- تاریخچه سفارشات با وضعیت و جزئیات
 
-## Contact
+### سفارش‌گیری
+- افزودن / حذف آیتم، تغییر تعداد، حذف کامل از سبد
+- نشانگر تعداد روی آیکون سبد در navbar
+- خرید چندمرحله‌ای: **سبد → ارسال → پرداخت → موفقیت**
+- اعمال کد تخفیف در مرحله پرداخت
+- گزینه پرداخت بانکی یا نقدی (شبیه‌سازی‌شده)
 
-For any questions or inquiries, please contact the project maintainers at [seyedalirafazi80@gmail.com].
+### تجربه کاربری (UI/UX)
+- چیدمان کامل **RTL** برای محتوای فارسی
+- فونت **Estedad**
+- طراحی واکنش‌گرا (Responsive) با منوی کناری موبایل (باز شدن از راست به چپ)
+- انیمیشن روی کارت‌ها، اسلایدر و badge سبد خرید
+- اعلان‌های Toast برای عملیات کاربر
+
+---
+
+## تکنولوژی‌ها
+
+| دسته | ابزار |
+|------|--------|
+| فریم‌ورک | React 18 |
+| زبان | TypeScript 5 |
+| ابزار بیلد | Vite 5 |
+| مسیریابی | React Router v6 |
+| مدیریت state سرور | TanStack React Query v5 |
+| استایل | Tailwind CSS 3 |
+| فرم‌ها | React Hook Form |
+| کامپوننت‌های پایه UI | Headless UI |
+| اسلایدر | Swiper |
+| انتخاب تاریخ | react-multi-date-picker (تقویم شمسی) |
+| اعلان‌ها | react-hot-toast |
+| آیکون‌ها | react-icons |
+| ذخیره‌سازی | `localStorage` (بدون API خارجی) |
+
+---
+
+## معماری
+
+این پروژه **فقط فرانت‌اند** است. سرور بک‌اند یا REST API خارجی ندارد.
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                     رابط کاربری React (RTL)              │
+├─────────────────────────────────────────────────────────┤
+│  TanStack Query  │  React Context  │  React Router      │
+├─────────────────────────────────────────────────────────┤
+│              services/ (لایه async)                      │
+├─────────────────────────────────────────────────────────┤
+│         store/localStore.ts  │  data/products.ts         │
+├─────────────────────────────────────────────────────────┤
+│                   localStorage                           │
+└─────────────────────────────────────────────────────────┘
+```
+
+- **`src/data/products.ts`** — کاتالوگ ثابت محصولات (۱۶ آیتم)
+- **`src/store/localStore.ts`** — کاربران، سبد، علاقه‌مندی‌ها و پرداخت‌ها در `localStorage` با کلید `tarkhineh_app`
+- **`src/services/`** — wrapperهای async برای React Query (قابل جایگزینی با API واقعی در آینده)
+
+---
+
+## راه‌اندازی
+
+### پیش‌نیازها
+
+- **Node.js** نسخه ۱۸ یا بالاتر (نسخه ۲۰ پیشنهاد می‌شود)
+- **npm** نسخه ۹ یا بالاتر
+
+### نصب و اجرا
+
+```bash
+# کلون مخزن
+git clone <repository-url>
+cd tarkhineh-front-React
+
+# نصب وابستگی‌ها
+npm install
+
+# اجرای سرور توسعه
+npm run dev
+```
+
+اپلیکیشن روی **http://localhost:3000** اجرا می‌شود.
+
+فایل `.env` لازم نیست — پروژه به API خارجی وابسته نیست.
+
+---
+
+## دستورات npm
+
+| دستور | توضیح |
+|--------|--------|
+| `npm run dev` | اجرای سرور توسعه Vite روی پورت ۳۰۰۰ |
+| `npm run build` | بررسی TypeScript و بیلد production |
+| `npm run preview` | پیش‌نمایش بیلد production به‌صورت محلی |
+| `npm run lint` | اجرای ESLint روی فایل‌های `.ts` / `.tsx` |
+
+---
+
+## ساختار پروژه
+
+```
+tarkhineh-front-React/
+├── public/
+│   ├── font.css              # تعریف فونت Estedad
+│   └── styles/               # تصاویر و فایل‌های استاتیک
+├── src/
+│   ├── main.tsx              # نقطه ورود اپ
+│   ├── App.tsx               # مسیرها و Providerها
+│   ├── index.css             # استایل سراسری + Tailwind
+│   ├── types/
+│   │   └── index.ts          # اینترفیس‌های TypeScript
+│   ├── data/
+│   │   └── products.ts       # داده mock محصولات
+│   ├── store/
+│   │   └── localStore.ts     # منطق localStorage
+│   ├── services/
+│   │   ├── foodService.ts    # محصولات و سبد خرید
+│   │   ├── userAuthService.ts
+│   │   └── paymantService.ts
+│   ├── context/
+│   │   └── SearchContext.tsx
+│   ├── hooks/
+│   │   └── useOutsideClick.ts
+│   ├── feachers/             # هوک‌ها و صفحات داشبورد
+│   │   ├── authentication/
+│   │   ├── food/
+│   │   ├── payment/
+│   │   └── user/
+│   ├── pages/                # صفحات سطح route
+│   ├── components/           # UI بخش‌های مختلف
+│   ├── ui/                   # کامپوننت‌های مشترک
+│   ├── icons/                # آیکون‌های SVG
+│   └── utils/                # توابع کمکی
+├── index.html
+├── tailwind.config.js
+├── tsconfig.json
+├── vite.config.ts
+└── package.json
+```
+
+---
+
+## مسیرها (Routes)
+
+| مسیر | صفحه |
+|------|------|
+| `/` | صفحه اصلی |
+| `/search-result` | نتایج جستجو |
+| `/branch-menu/mainfood` | غذای اصلی |
+| `/branch-menu/appetizer` | پیش‌غذا |
+| `/branch-menu/dessert` | دسر |
+| `/branch-menu/drink` | نوشیدنی |
+| `/food-details/:id` | جزئیات محصول |
+| `/cart` | سبد خرید |
+| `/shipping` | اطلاعات ارسال |
+| `/payment` | پرداخت و کد تخفیف |
+| `/successful-payment` | تأیید سفارش |
+| `/dashboard` | داشبورد کاربر |
+| `/dashboard/profile` | ویرایش پروفایل |
+| `/dashboard/user-orders` | سفارشات |
+| `/dashboard/user-favourits` | علاقه‌مندی‌ها |
+| `/dashboard/user-address` | آدرس |
+| `/franchise` | نمایندگی |
+| `/about` | درباره ما |
+| `/call-us` | تماس با ما |
+
+---
+
+## داده و state
+
+### محصولات
+
+محصولات در `src/data/products.ts` تعریف شده‌اند:
+
+- `_id`, `title`, `description`
+- `price`, `offPrice`, `discount`
+- `category` — `mainFood` \| `appetizer` \| `dessert` \| `drinks`
+- `foodGroup` — زیرفیلتر غذای اصلی (ایرانی، پیتزا و …)
+- `imageLink` — آدرس تصویر (Unsplash)
+
+### ساختار localStorage
+
+کلید: **`tarkhineh_app`**
+
+```ts
+{
+  currentUserPhone: string | null,
+  users: Record<string, User>,
+  carts: Record<string, { productDetail: CartProduct[] }>,
+  payments: Record<string, Payment[]>
+}
+```
+
+با پاک کردن داده‌های مرورگر، همه کاربران، سبدهای خرید و سفارشات reset می‌شوند.
+
+---
+
+## احراز هویت
+
+1. روی **آیکون کاربر** در navbar کلیک کنید.
+2. **شماره تلفن** و **رمز عبور** را وارد کنید.
+3. اولین ورود = **ثبت‌نام**؛ ورودهای بعدی = بررسی رمز عبور.
+4. نشست (session) تا زمان خروج در `localStorage` ذخیره می‌شود.
+
+> **توجه:** این احراز هویت برای دمو و توسعه محلی است. رمز عبور به‌صورت plain text در `localStorage` ذخیره می‌شود و برای production بدون بک‌اند واقعی مناسب نیست.
+
+---
+
+## فرآیند خرید
+
+```
+سبد خرید  →  ارسال  →  پرداخت  →  پرداخت موفق
+```
+
+1. **سبد** — بررسی آیتم‌ها، تغییر تعداد، مشاهده مبلغ
+2. **ارسال** — انتخاب روش تحویل و توضیحات
+3. **پرداخت** — کد تخفیف، انتخاب بانک یا نقد، تأیید
+4. **موفقیت** — ذخیره در تاریخچه سفارشات؛ خالی شدن سبد
+
+برای افزودن به سبد باید **وارد حساب** شده باشید.
+
+---
+
+## کدهای تخفیف
+
+کدهای معتبر در مرحله پرداخت (بدون حساسیت به حروف بزرگ/کوچک):
+
+| کد | تخفیف |
+|----|--------|
+| `tarkhineh10` | ۱۰٪ |
+| `off10` | ۱۰٪ |
+| `welcome` | ۱۵٪ |
+
+---
+
+## استایل و UI
+
+- **Tailwind CSS** با تم سفارشی در `tailwind.config.js`
+- رنگ اصلی برند: `#417f56`
+- مقیاس‌های رنگ: `tint-*`, `shade-*`, `secondery-*`
+- متغیرهای CSS سراسری در `src/index.css`
+- RTL در `index.html`: `<html dir="rtl">`
+
+---
+
+## TypeScript
+
+پروژه با **strict mode** TypeScript نوشته شده است. تایپ‌های مشترک در `src/types/index.ts`:
+
+- `Product`, `User`, `Cart`, `CartProduct`, `Payment`
+- اینترفیس‌های request/response برای services
+
+بیلد قبل از bundle، type-check انجام می‌دهد:
+
+```bash
+npm run build   # اجرا: tsc -b && vite build
+```
+
+---
+
+## بیلد و استقرار
+
+### بیلد production
+
+```bash
+npm run build
+```
+
+خروجی در پوشه `dist/` قرار می‌گیرد.
+
+### پیش‌نمایش محلی
+
+```bash
+npm run preview
+```
+
+### استقرار (Deploy)
+
+این اپ یک SPA استاتیک است و روی سرویس‌های زیر قابل deploy است:
+
+- **Vercel** (هاست فعلی نسخه زنده)
+- Netlify
+- GitHub Pages
+- هر هاست فایل استاتیک
+
+برای SPA باید همه مسیرها به `index.html` redirect شوند (SPA fallback).
+
+---
+
+## پشتیبانی مرورگر
+
+مرورگرهای مدرن (Chrome, Firefox, Safari, Edge). نیازمند:
+
+- پشتیبانی ES2020
+- `localStorage`
+- اتصال اینترنت برای بارگذاری تصاویر محصول (CDN Unsplash)
+
+---
+
+## تماس
+
+برای سؤال یا همکاری:
+
+**ایمیل:** [seyedalirafazi80@gmail.com](mailto:seyedalirafazi80@gmail.com)
+
+---
+
+## مجوز
+
+پروژه خصوصی — تمامی حقوق محفوظ است مگر اینکه مالک مخزن خلاف آن را اعلام کند.
